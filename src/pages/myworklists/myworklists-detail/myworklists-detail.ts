@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 
 @Component({
 
+  templateUrl:'myworklists-detail.html'
 })
 export class MyworklistsDetailPage{
-  constructor(public nav: NavController){
+  item;
 
-  };
+  constructor(params: NavParams) {
+    this.item = params.data.item;
+  }
 }

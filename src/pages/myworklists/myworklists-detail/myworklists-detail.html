@@ -1,7 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      详情
+      {{ item.productid }}
     </ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content padding>
+  <div >
+    {{ item.ProductName }}
+  </div>
+  <div>
+    ￥{{item.PromotionInfoPrice}}
+  </div>
+  <div>
+    <span>{{item.QuanInfo}}</span>
+    <span>{{item.DiscountRate}}人</span>
+  </div>
+</ion-content>

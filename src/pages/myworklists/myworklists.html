@@ -22,7 +22,7 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-item *ngFor="let item of mylists">
+    <ion-item *ngFor="let item of mylists" (click)="startPage(item)">
       <p>{{item.ProductName}}</p>
       <p >{{item.DiscountRate+"折"}}</p>
       <p > {{ "月销"+item.SalesVolume}} </p>

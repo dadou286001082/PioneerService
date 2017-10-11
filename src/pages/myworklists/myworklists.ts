@@ -19,7 +19,7 @@ export class MyworklistsPage {
       error =>this.errorMessage = <any> error,
     );
   }
-  startPage() {
-    this.navCtrl.push(MyworklistsDetailPage);
+  startPage(item) {
+    this.navCtrl.push(MyworklistsDetailPage,{item:item});
   }
 }

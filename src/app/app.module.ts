@@ -8,6 +8,7 @@ import {HttpModule} from "@angular/http";
 
 
 import { MyworklistsPage } from '../pages/myworklists/myworklists';
+import {MyworklistsDetailPage} from "../pages/myworklists/myworklists-detail/myworklists-detail";
 import { WorklistapplyPage } from '../pages/worklistapply/worklistapply';
 import { MysetsPage } from '../pages/mysets/mysets';
 import {MysetsDetailPage} from "../pages/mysets/mysets-detail";
@@ -24,6 +25,7 @@ import {MyworklistsService} from "../pages/myworklists/myworklists.service/mywor
     WorklistapplyPage,
     MysetsPage,
     MysetsDetailPage,
+    MyworklistsDetailPage,
     TabsPage
   ],
   imports: [
@@ -38,6 +40,7 @@ import {MyworklistsService} from "../pages/myworklists/myworklists.service/mywor
     WorklistapplyPage,
     MysetsPage,
     MysetsDetailPage,
+    MyworklistsDetailPage,
     TabsPage
   ],
   providers: [
