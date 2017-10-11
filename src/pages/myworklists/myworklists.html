@@ -1,0 +1,80 @@
+<ion-header id="header">
+  <div class="header-left">
+    <img src="assets/img/zhanghao.png"/>
+  </div>
+  <div class="header-center">
+    <span>工单列表</span>
+  </div>
+  <div class="header-right">
+    <img src="assets/img/yonghu.png"/>
+  </div>
+</ion-header>
+<ion-content padding>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="puppies">
+        未完成
+      </ion-segment-button>
+      <ion-segment-button value="kittens">
+        已完成
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item *ngFor="let item of mylists">
+      <p>{{item.ProductName}}</p>
+      <p >{{item.DiscountRate+"折"}}</p>
+      <p > {{ "月销"+item.SalesVolume}} </p>
+    </ion-item>
+
+  </ion-list>
+
+  <!--<div [ngSwitch]="pet">-->
+    <!--<ion-list *ngSwitchCase="'puppies'">-->
+      <!--<ion-item onclick="startPage()">-->
+        <!--<h2>服务单号：531112312</h2>-->
+        <!--<h2>车牌号：shanA</h2>-->
+        <!--<h2>工单类型：车辆清洗</h2>-->
+      <!--</ion-item>-->
+      <!--<ion-item>-->
+        <!--<h2>服务单号：53111231</h2>-->
+        <!--<h2>车牌号：shanA</h2>-->
+        <!--<h2>工单类型：车辆清洗</h2>-->
+      <!--</ion-item>-->
+      <!--<ion-item>-->
+        <!--<h2>服务单号：53111231</h2>-->
+        <!--<h2>车牌号：shanA</h2>-->
+        <!--<h2>工单类型：车辆清洗</h2>-->
+      <!--</ion-item>-->
+
+    <!--</ion-list>-->
+
+    <!--<ion-list *ngSwitchCase="'kittens'">-->
+      <!--<ion-item>-->
+        <!--<ion-thumbnail item-start>-->
+          <!--<img src="assets/img/thumbnail-kitten-1.jpg">-->
+        <!--</ion-thumbnail>-->
+        <!--<h2>Luna</h2>-->
+      <!--</ion-item>-->
+      <!--<ion-item>-->
+        <!--<ion-thumbnail item-start>-->
+          <!--<img src="assets/img/thumbnail-kitten-3.jpg">-->
+        <!--</ion-thumbnail>-->
+        <!--<h2>Milo</h2>-->
+      <!--</ion-item>-->
+      <!--<ion-item>-->
+        <!--<ion-thumbnail item-start>-->
+          <!--<img src="assets/img/thumbnail-kitten-4.jpg">-->
+        <!--</ion-thumbnail>-->
+        <!--<h2>Bandit</h2>-->
+      <!--</ion-item>-->
+      <!--<ion-item>-->
+        <!--<ion-thumbnail item-start>-->
+          <!--<img src="assets/img/thumbnail-kitten-2.jpg">-->
+        <!--</ion-thumbnail>-->
+        <!--<h2>Nala</h2>-->
+      <!--</ion-item>-->
+    <!--</ion-list>-->
+    <!--</div>-->
+</ion-content>

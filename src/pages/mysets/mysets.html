@@ -1,0 +1,49 @@
+<!--<ion-header>-->
+  <!--<ion-navbar>-->
+    <!--<ion-title>我的站点</ion-title>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+<ion-header id="header">
+  <div class="header-left" >
+    <img src="assets/img/zhanghao.png"/>
+  </div>
+  <div class = "header-city">
+    <span>西安</span>
+  </div>
+  <div class="header-center">
+    <span>我的站点</span>
+  </div>
+  <div class="header-right">
+    <img src="assets/img/yonghu.png"/>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="获取最新数据..."
+      refreshingSpinner="circles"
+      refreshingText="刷新完毕">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list inset no-lines>
+    <ion-item ion-item *ngFor="let item of items,let i = index" (click)="openNavDetailsPage(item)">
+       <div >
+      {{ item.name }}
+    </div>
+      <div>
+        ￥{{item.price}}
+    </div>
+      <div>
+        <span>{{item.haoping}}%好评</span>
+        <span>{{item.buy}}人</span>
+    </div>
+    </ion-item>
+      <!--<span ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)">-->
+      <!--&lt;!&ndash;<ion-icon [name]="'logo-' + item.icon" [ngStyle]="{'color': item.color}" item-start></ion-icon>&ndash;&gt;-->
+      <!--{{ item.title }}-->
+        <!--{{item.icon}}-->
+    <!--</span>-->
+  </ion-list>
+</ion-content>
