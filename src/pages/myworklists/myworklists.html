@@ -21,11 +21,11 @@
     </ion-segment>
   </ion-toolbar>
 
-  <ion-list>
-    <ion-item *ngFor="let item of mylists" (click)="startPage(item)">
-      <p>{{item.ProductName}}</p>
-      <p >{{item.DiscountRate+"折"}}</p>
-      <p > {{ "月销"+item.SalesVolume}} </p>
+  <ion-list no-lines inset>
+    <ion-item style="background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists" (click)="startPage(item)">
+      <div >{{item.ProductName}}</div>
+      <div >{{item.DiscountRate+"折"}}</div>
+      <p style="color:#f53d3d"> {{ "月销"+item.SalesVolume}} </p>
     </ion-item>
 
   </ion-list>

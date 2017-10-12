@@ -5,6 +5,7 @@ page-home {
     background-size: 100% 50px;
     width: 100%;
     height: 50px;
+    margin: 10px;
     overflow: hidden;
   }
   .header-city{
@@ -43,6 +44,15 @@ page-home {
     width: 40px;
     height: 44px;
     position: absolute;
+    margin-right: 10px;
     right: 0;
   }
+
+
+  #item-style{
+    background-color:aliceblue;
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+
 }
