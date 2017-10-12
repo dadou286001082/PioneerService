@@ -1,0 +1,35 @@
+<<ion-header>
+  <ion-navbar>
+    <ion-title >
+      <div style="display: flex;justify-content:center">
+        设置
+      </div>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div style="display: flex" (click)="aboutUs()">
+  <img src="../assets/icon/tubiao6.png"/>
+  <span style="display: flex;align-items:center">关于我们</span>
+</div>
+
+  <div style="display: flex;">
+    <img src="../assets/icon/tubiao5.png"/>
+    <span style="display: flex;align-items:center">检查版本</span>
+    <span style="display: flex;align-items:center;justify-content: flex-end;margin-left: 300px">1.0</span>
+  </div>
+
+  <div style="display: flex">
+    <img src="../assets/icon/tubiao4.png"/>
+    <span style="display: flex;align-items:center">清理缓存</span>
+    <span style="display: flex;align-items:center;justify-content: flex-end;margin-left: 300px">215.kb</span>
+  </div>
+
+  <div style="display: flex" (click)="callFriend($event, friend)">
+    <img src="../assets/icon/tubiao3.png"/>
+    <a style="display: flex;align-items:center" href="tel:10086">152114144</a>
+
+  </div>
+</ion-content>

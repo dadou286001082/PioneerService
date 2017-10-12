@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 import {MysetsDetailPage} from "./mysets-detail";
 import {MysetsService} from "./mysets.service/mysets.service";
+import {UserPage} from "../userpage/user";
 
 @Component({
   selector: 'page-home',
@@ -74,4 +75,9 @@ export class MysetsPage {
   openNavDetailsPage(item) {
     this.nav.push(MysetsDetailPage, { item: item });
   }
+
+  intoUserPage(){
+    this.nav.push(UserPage);
+  }
+
 }
