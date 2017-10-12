@@ -11,16 +11,15 @@
 
 <ion-content>
 
-  <div style="margin: 10px">
+  <div style="margin-top: 20px;margin-left:20px;">
     <span>
        请输入车牌号
     </span>
 
   </div>
   <!-- 车牌号复选框 -->
-  <div style="display: flex">
-
-    <ion-item style="width: 200px;height: 50px">
+  <div id="carnum-bg">
+    <ion-item >
       <!--<ion-label>Notifications</ion-label>-->
       <ion-select [(ngModel)]="notifications" interface="action-sheet">
         <ion-option value="enable" selected>陕</ion-option>
@@ -29,10 +28,7 @@
         <!--<ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>-->
       </ion-select>
     </ion-item>
-
-    <label >
-      <input type="text" placeholder="1105410 " style="height: 50px">
-    </label>
+      <input type="text" placeholder="1105410 " style="height: 50px;width: 100%">
   </div>
 
   <div style="margin-top: 50px;margin-left: 10px">
