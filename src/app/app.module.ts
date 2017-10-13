@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule} from "@angular/http";
 
+import {LoginPage} from "../pages/login/login";
 
 import { MyworklistsPage } from '../pages/myworklists/myworklists';
 import {MyworklistsDetailPage} from "../pages/myworklists/myworklists-detail/myworklists-detail";
@@ -22,11 +23,14 @@ import {AboutusPage} from "../pages/userpage/aboutus/aboutus";
 
 import {MysetsService} from "../pages/mysets/mysets.service/mysets.service";
 import {MyworklistsService} from "../pages/myworklists/myworklists.service/myworklists.service";
+import {WelcomePage} from "../pages/welcome/welcome";
 
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
+    WelcomePage,
     MyworklistsPage,
     WorklistapplyPage,
     MysetsPage,
@@ -47,6 +51,8 @@ import {MyworklistsService} from "../pages/myworklists/myworklists.service/mywor
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
+    WelcomePage,
     MyworklistsPage,
     WorklistapplyPage,
     MysetsPage,
