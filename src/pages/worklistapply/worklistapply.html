@@ -11,7 +11,7 @@
 
 <ion-content>
 
-  <div style="margin-top: 20px;margin-left:20px;">
+  <div style="margin-top: 20px;margin-left:5%;margin-bottom: 10px">
     <span>
        请输入车牌号
     </span>
@@ -19,7 +19,7 @@
   </div>
   <!-- 车牌号复选框 -->
   <div id="carnum-bg">
-    <ion-item >
+    <ion-item style="width: 30%;">
       <!--<ion-label>Notifications</ion-label>-->
       <ion-select [(ngModel)]="notifications" interface="action-sheet">
         <ion-option value="enable" selected>陕</ion-option>
@@ -28,19 +28,19 @@
         <!--<ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>-->
       </ion-select>
     </ion-item>
-      <input type="text" placeholder="1105410 " style="height: 50px;width: 100%">
+      <input type="text" placeholder="1105410 " style="border: 2px solid gray;height: 60px;width: 100%">
   </div>
 
-  <div style="margin-top: 50px;margin-left: 10px">
+  <div style="margin-top: 50px;margin-left: 5%">
   <span>
     请输入工单类型
   </span>
   </div>
   <!-- 工单类型复选框 -->
-  <div>
-    <ion-item >
+  <div id="cartype">
+    <ion-item>
       <!--<ion-label>Notifications</ion-label>-->
-      <ion-select [(ngModel)]="notifications" interface="action-sheet">
+      <ion-select style="margin: auto" [(ngModel)]="notifications" interface="action-sheet">
         <ion-option value="enable" selected>车辆保洁</ion-option>
         <ion-option value="mute" >车辆保养</ion-option>
         <ion-option value="mute_week">加油</ion-option>
@@ -49,12 +49,12 @@
     </ion-item>
   </div>
 
-  <div style="margin-top: 50px;margin-left: 10px">
+  <div style="margin-top: 50px;margin-left:5%;">
     <span>申请原因</span>
   </div>
-  <div>
+  <div style="margin-left: 5%;">
     <label >
-      <input type="text" placeholder="" style=" width: 90% ;height :200px;margin-left: 10px" >
+      <input type="text" placeholder="" style="border: 2px solid gray; width: 90% ;height :200px" >
     </label>
   </div>
   <div>
