@@ -8,10 +8,10 @@
     <img src="assets/img/zhanghao.png"/>
   </div>
   <div class = "header-city">
-    <span style="font-size: large;">西安</span>
+    <span style="font-size:medium;">西安</span>
   </div>
   <div class="header-center">
-    <span style="font-size: x-large">我的站点</span>
+    <span style="font-size:large">我的站点</span>
   </div>
   <div class="header-right" (click)="intoUserPage()">
     <img src="assets/img/yonghu.png"/>
@@ -29,15 +29,15 @@
   </ion-refresher>
   <ion-list inset no-lines>
     <ion-item id="item-style" ion-item *ngFor="let item of items,let i = index" (click)="openNavDetailsPage(item)">
-       <div style="font-size: x-large;margin: 3px;">
+       <div style="font-size: large;margin: 3px;">
       {{ item.name }}
     </div>
-      <div>
+      <div style="font-size: medium">
         ￥{{item.price}}
     </div>
       <div>
-        <span>{{item.haoping}}%好评</span>
-        <span>{{item.buy}}人</span>
+        <span style="font-size: medium">{{item.haoping}}%好评</span>
+        <span style="font-size: medium">{{item.buy}}人</span>
     </div>
       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
     </ion-item>
