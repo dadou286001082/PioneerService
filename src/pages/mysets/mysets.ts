@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 import {MysetsDetailPage} from "./mysets-detail";
 import {MysetsService} from "./mysets.service/mysets.service";
-import {UserPage} from "../userpage/user";
+import {UserPage} from "../userpage/user/user";
 
 @Component({
   selector: 'page-home',

@@ -15,11 +15,13 @@ import { MysetsPage } from '../pages/mysets/mysets';
 import {MysetsDetailPage} from "../pages/mysets/mysets-detail";
 import { TabsPage } from '../pages/tabs/tabs';
 
-import {UserPage} from "../pages/userpage/user";
+import {UserPage} from "../pages/userpage/user/user";
 import {UserDetailsPage} from "../pages/userpage/userdetail/userDetails";
 import {SettingsPage} from "../pages/userpage/settings/settings";
 import {PasswordPage} from "../pages/userpage/passwords/password";
 import {AboutusPage} from "../pages/userpage/aboutus/aboutus";
+
+import {UserpageService}from '../pages/userpage/userpage.service/userpage.service';
 
 import {MysetsService} from "../pages/mysets/mysets.service/mysets.service";
 import {MyworklistsService} from "../pages/myworklists/myworklists.service/myworklists.service";
@@ -70,7 +72,8 @@ import {WelcomePage} from "../pages/welcome/welcome";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MysetsService,
-    MyworklistsService
+    MyworklistsService,
+    UserpageService
   ]
 })
 export class AppModule {}
