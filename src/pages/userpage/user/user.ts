@@ -7,7 +7,7 @@ import { AlertController } from 'ionic-angular';
 
 
 /**
- * 个人中心页面
+ * 个人中心页面  
  */
 @Component({
   selector: 'page-user',
