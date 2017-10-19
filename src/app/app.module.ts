@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule} from "@angular/http";
 
 import {LoginPage} from "../pages/login/login";
+import {AppService} from "../providers/app.service";
 
 import { MyworklistsPage } from '../pages/myworklists/myworklists';
 import {MyworklistsDetailPage} from "../pages/myworklists/myworklists-detail/myworklists-detail";
@@ -73,6 +74,7 @@ import {WelcomePage} from "../pages/welcome/welcome";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MysetsService,
     MyworklistsService,
+    AppService,
     UserpageService
   ]
 })
