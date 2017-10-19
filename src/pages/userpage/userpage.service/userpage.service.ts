@@ -6,15 +6,24 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers/*, BaseRequestOptions*/ } from '@angular/http';
 import { LoadingController, AlertController, ToastController, Platform } from 'ionic-angular';
+import {isSuccess} from "@angular/http/src/http_utils";
+
 
 @Injectable()
 export class UserpageService{
 
-    //»º´ækeyµÄÅäÖÃ
+  public static state:boolean;
+  public static setState(st:boolean){
+    this.state=st;
+  }
+  public static getState():boolean{
+    return this.state;
+  }
+    //ç¼“å­˜keyçš„é…ç½®
     params: any = {
-        device_type: "20", //ĞèÒªÌæ»»³É android=20 || ios=10
-        device_version: "1.0", //ĞèÒªÌæ»»³É µ±Ç°°æ±¾ºÅ
-        version_code: "1", //ĞèÒªÌæ»»³É µ±Ç°°æ±¾ºÅ
+        device_type: "20", //éœ€è¦æ›¿æ¢æˆ android=20 || ios=10
+        device_version: "1.0", //éœ€è¦æ›¿æ¢æˆ å½“å‰ç‰ˆæœ¬å·
+        version_code: "1", //éœ€è¦æ›¿æ¢æˆ å½“å‰ç‰ˆæœ¬å·
         channel: "20001_website",
     }
 
@@ -31,18 +40,24 @@ export class UserpageService{
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         var body = this.encode(this.params) + '&' + this.encode(params);
-        //this.logger.log("REQUEST:\n", APP_SERVE_URL, body); //´òÓ¡ÇëÇóÊı¾İ
-        console.log("REQUEST:\n", 'http://218.244.158.175/xauto_poineer_server/xp_service_api/index.php', body);
+        //this.logger.log("REQUESTå‘é€æ•°æ®:\n", APP_SERVE_URL, body); //æ‰“å°è¯·æ±‚æ•°æ®
+        console.log("REQUESTå‘é€æ•°æ®:\n", 'http://218.244.158.175/xauto_poineer_server/xp_service_api/index.php', body);
         this.http.post('http://218.244.158.175/xauto_poineer_server/xp_service_api/index.php', body, { headers: headers }).toPromise()
             .then(
                 res => {
-                var d = res.json();
-                //this.logger.log("RESULT:", res); //´òÓ¡·µ»ØÊı¾İ
-                console.log("RESULT:", res);
+               var  d = res.json();
+
+                //this.logger.log("RESULT:", res); //æ‰“å°è¿”å›æ•°æ®
+                console.log("RESULTè·å–æ•°æ®:", res);
+                // console.log("è¿”å›:", d["token"]);
+
+
+
                 if (loader) {
                     loading.dismiss();
                 }
                 callback(d == null ? "[]" : d);
+
             }).catch(error => {
                 if (loader) {
                     loading.dismiss();
@@ -50,9 +65,12 @@ export class UserpageService{
                 this.handleError(error);
             }
         );
+
+
     }
 
-    ////ÔİÊ±ÎŞÓÃ£¬½Ó¿Ú¾ùÎª post ÇëÇó
+
+    ////æš‚æ—¶æ— ç”¨ï¼Œæ¥å£å‡ä¸º post è¯·æ±‚
     //httpGet(url, params, callback, loader: boolean = false) {
     //  let loading = this.loadingCtrl.create({});
     //  if (loader) {
@@ -78,19 +96,19 @@ export class UserpageService{
     private handleError(error: Response | any) {
         let msg = '';
         if (error.status == 400) {
-            msg = 'ÇëÇóÎŞĞ§(code£º404)';
-            //this.logger.log('Çë¼ì²é²ÎÊıÀàĞÍÊÇ·ñÆ¥Åä');
-            console.log('Çë¼ì²é²ÎÊıÀàĞÍÊÇ·ñÆ¥Åä');
+            msg = 'è¯·æ±‚æ— æ•ˆ(codeï¼š404)';
+            //this.logger.log('è¯·æ£€æŸ¥å‚æ•°ç±»å‹æ˜¯å¦åŒ¹é…');
+            console.log('è¯·æ£€æŸ¥å‚æ•°ç±»å‹æ˜¯å¦åŒ¹é…');
         }
         if (error.status == 404) {
-            msg = 'ÇëÇó×ÊÔ´²»´æÔÚ(code£º404)';
-            //this.logger.error(msg + '£¬Çë¼ì²éÂ·¾¶ÊÇ·ñÕıÈ·');
-            console.log(msg + '£¬Çë¼ì²éÂ·¾¶ÊÇ·ñÕıÈ·');
+            msg = 'è¯·æ±‚èµ„æºä¸å­˜åœ¨(codeï¼š404)';
+            //this.logger.error(msg + 'ï¼Œè¯·æ£€æŸ¥è·¯å¾„æ˜¯å¦æ­£ç¡®');
+            console.log(msg + 'ï¼Œè¯·æ£€æŸ¥è·¯å¾„æ˜¯å¦æ­£ç¡®');
         }
         if (error.status == 500) {
-            msg = '·şÎñÆ÷·¢Éú´íÎó(code£º500)';
-            //this.logger.error(msg + '£¬Çë¼ì²éÂ·¾¶ÊÇ·ñÕıÈ·');
-            console.log(msg + '£¬Çë¼ì²éÂ·¾¶ÊÇ·ñÕıÈ·');
+            msg = 'æœåŠ¡å™¨å‘ç”Ÿé”™è¯¯(codeï¼š500)';
+            //this.logger.error(msg + 'ï¼Œè¯·æ£€æŸ¥è·¯å¾„æ˜¯å¦æ­£ç¡®');
+            console.log(msg + 'ï¼Œè¯·æ£€æŸ¥è·¯å¾„æ˜¯å¦æ­£ç¡®');
         }
         console.log(error);
         //this.logger.error(error);
@@ -113,7 +131,7 @@ export class UserpageService{
     //     return Observable.throw(errMsg);
     // }
 
-    // ¶Ô²ÎÊı½øĞĞ±àÂë
+    // å¯¹å‚æ•°è¿›è¡Œç¼–ç 
     encode(params) {
         var str = '';
         if (params) {
@@ -131,10 +149,10 @@ export class UserpageService{
     alert(message, callback?) {
         if (callback) {
             let alert = this.alertCtrl.create({
-                title: 'ÌáÊ¾',
+                title: 'æç¤º',
                 message: message,
                 buttons: [{
-                    text: "È·¶¨",
+                    text: "ç¡®å®š",
                     handler: data => {
                         callback();
                     }
@@ -143,9 +161,9 @@ export class UserpageService{
             alert.present();
         } else {
             let alert = this.alertCtrl.create({
-                title: 'ÌáÊ¾',
+                title: 'æç¤º',
                 message: message,
-                buttons: ["È·¶¨"]
+                buttons: ["ç¡®å®š"]
             });
             alert.present();
         }

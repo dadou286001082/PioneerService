@@ -12,25 +12,25 @@
 <ion-content>
   <div style="display: flex; justify-content:space-between;margin: 20px" >
     <span style="display: flex;align-items:center">头像</span>
-    <img src="assets/img/yonghu.png">
+    <img src={{this.userParticulars.source}}>
   </div>
   <div style="background: #f9f9f9;height: 5px;"></div>
 
   <div style="display: flex; justify-content:space-between;margin: 20px" >
     <span>姓名</span>
-    <span>ling</span>
+    <span>{{this.userParticulars.user_name}}</span>
   </div>
   <div style="background: #f9f9f9;height: 5px;"></div>
 
   <div style="display: flex; justify-content:space-between;margin: 20px" >
     <span>手机号</span>
-    <span>15758457</span>
+    <span>{{this.userParticulars.mobile}}</span>
   </div>
   <div style="background: #f9f9f9;height: 5px;"></div>
 
   <div style="display: flex; justify-content:space-between;margin: 20px" >
    <span>角色</span>
-    <span>维护工作人员组</span>
+    <span>{{this.userParticulars.user_group_name}}</span>
   </div>
   <div style="background: #f9f9f9;height: 5px;"></div>
 

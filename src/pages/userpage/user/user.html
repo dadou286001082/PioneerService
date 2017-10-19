@@ -1,7 +1,7 @@
 <<ion-header>
   <ion-navbar>
     <ion-title >
-      <div style="display: flex;justify-content:center">
+      <div  style="display: flex;justify-content:center">
         个人中心
       </div>
     </ion-title>
@@ -10,19 +10,22 @@
 </ion-header>
 
 <ion-content>
+  <!--头像-->
   <div>
   <div style="display: flex;justify-content: center;align-items:flex-start; margin-left: 10px;margin-top: 30px"(click)="intoUserDetails()">
-    <img src="assets/img/yonghu.png" />
+    <img src={{this.userParticulars.thumb}}/>
   </div>
-
+    <!--维护人员工作组-->
     <div  style="display: flex;justify-content: center;margin-top: 20px">
-      <span >维护工作人员组</span>
+      <span >{{this.userParticulars.user_group_name}}</span>
     </div>
+    <!--名字-->
   <div  style="display: flex;justify-content: center;margin-top: 10px">
-    <span> 名字</span>
+    <span> {{this.userParticulars.user_name}}</span>
   </div>
+    <!--电话-->
   <div  style="display: flex;justify-content: center;margin-top: 10px">
-    <span>1545125581</span>
+    <span>{{this.userParticulars.mobile_format}}</span>
   </div>
   </div>
 <div style="background: #f9f9f9;height: 10px;margin-top: 40px">
