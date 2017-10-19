@@ -1,77 +1,55 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 import {MysetsDetailPage} from "./mysets-detail";
-import {MysetsService} from "./mysets.service/mysets.service";
 import {UserPage} from "../userpage/user/user";
+import {AppService} from "../../providers/app.service";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'mysets.html'
 })
 export class MysetsPage {
+
   index;
   items = [];
   errorMessage: string;
-
-
-  constructor(public nav: NavController,public navParams: NavParams, public mysetsService:MysetsService) {
-    // this.items = [
-    //   {
-    //     'title': '测试站点001-东郊',
-    //     'icon': '金花北路',
-    //     'description': '0个',
-    //     'color': '#E63135'
-    //   },
-    //   {
-    //     'title': '测试站点002-西郊',
-    //     'icon': '太白南路',
-    //     'description': '1个',
-    //     'color': '#0CA9EA'
-    //   },
-    //   {
-    //     'title': '测试站点003-南郊',
-    //     'icon': '西稍门',
-    //     'description': '2个',
-    //     'color': '#F46529'
-    //   },
-    //   {
-    //     'title': '测试站点004-北郊',
-    //     'icon': '龙首村',
-    //     'description': '3个',
-    //     'color': '#FFD439'
-    //   },
-    //   {
-    //     'title': '测试站点005-城内',
-    //     'icon': '钟楼',
-    //     'description': '4个',
-    //     'color': '#CE6296'
-    //   },
-    //
-    // ]
+  pagination:any = {
+    page:'1',
+    count:'10'
   }
+  jsonText: any = {
+    user_id:'7',
+    pagination:this.pagination
+  }
+
+  _params: any ={
+    route:'parking_site/parking_site/getUserParkingSiteList',
+    token:'9a580777d6fed242ccd12d1be9b3652f',
+    jsonText:JSON.stringify(this.jsonText)
+  };
+  constructor(public nav: NavController,public navParams: NavParams, public appService: AppService){
+
+}
+
   ionViewDidLoad() {
-    this.index = this.navParams.get('item');
-    console.log('index' + this.index);
+    // this.index = this.navParams.get('item');
+    // console.log('index' + this.index);
     this.loadData();
   }
+private loadData(){
+  this.appService.httpPost(this._params, d => {
 
-  private loadData(){
-    this.mysetsService.getMysets().subscribe(countries =>this.items =<any>countries,
-      error =>this.errorMessage = <any>error,
-      )
-  }
-  doRefresh(refresher) {
-    this.loadNetData(refresher);
-  }
-  private loadNetData(refresher: any) {
-    this.mysetsService.getMysets().subscribe(
-      countries => this.items = <any>countries,
-      error => this.errorMessage = <any>error,
-      function complete() {
-        refresher.complete();
-      },
-    );
-  }
+    let data = d.data;
+    this.items = data['parking_site_list'];
+    // console.log('111'+this.items[1]['parking_site_id']);
+    if(d.status['succeed']=='1'){
+      console.log('获取站点成功');
+    }else{
+      console.log('获取站点失败');
+    }
+  }, true);
+}
+
   openNavDetailsPage(item) {
     this.nav.push(MysetsDetailPage, { item: item });
   }
@@ -81,3 +59,4 @@ export class MysetsPage {
   }
 
 }
+

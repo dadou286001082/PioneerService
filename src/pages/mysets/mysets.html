@@ -19,7 +19,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+  <ion-refresher (ionRefresh)="loadData()">
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
       pullingText="获取最新数据..."
@@ -30,14 +31,13 @@
   <ion-list inset no-lines>
     <ion-item id="item-style" ion-item *ngFor="let item of items,let i = index" (click)="openNavDetailsPage(item)">
        <div style="font-size: large;margin: 3px;">
-      {{ item.name }}
+      {{ item.parking_site_name }}
     </div>
       <div style="font-size: medium">
-        ￥{{item.price}}
+        {{item.parking_site_address}}
     </div>
       <div>
-        <span style="font-size: medium">{{item.haoping}}%好评</span>
-        <span style="font-size: medium">{{item.buy}}人</span>
+        <span style="font-size: medium">待处理 {{item.pending_work_sheet_count}}</span>
     </div>
       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
     </ion-item>
