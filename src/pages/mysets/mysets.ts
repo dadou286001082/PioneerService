@@ -10,6 +10,7 @@ import {UserBase} from "../userpage/user/userbase";
   selector: 'page-home',
   templateUrl: 'mysets.html'
 })
+//用户我的站点页面
 export class MysetsPage {
   jsonText1;
   params1;

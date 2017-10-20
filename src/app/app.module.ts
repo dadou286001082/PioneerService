@@ -17,6 +17,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import {UserPage} from "../pages/userpage/user/user";
 import {UserDetailsPage} from "../pages/userpage/userdetail/userDetails";
+
 import {SettingsPage} from "../pages/userpage/settings/settings";
 import {PasswordPage} from "../pages/userpage/passwords/password";
 import {AboutusPage} from "../pages/userpage/aboutus/aboutus";

@@ -11,26 +11,45 @@
 </ion-header>
 <ion-content padding>
   <ion-toolbar>
-    <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="puppies">
+    <ion-segment [(ngModel)]="myworklistType">
+      <ion-segment-button value="undone">
         未完成
       </ion-segment-button>
-      <ion-segment-button value="kittens">
+      <ion-segment-button value="done">
         已完成
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
+  <div [ngSwitch]="myworklistType">
+    <ion-list *ngSwitchCase="'undone'">
+    <ion-item onclick="startPage()">
+    <h2>服务单号：531112312</h2>
+    <h2>车牌号：shanA</h2>
+    <h2>工单类型：车辆清洗</h2>
+    </ion-item>
+    <ion-item>
+    <h2>服务单号：53111231</h2>
+    <h2>车牌号：shanA</h2>
+    <h2>工单类型：车辆清洗</h2>
+    </ion-item>
+    <ion-item>
+    <h2>服务单号：53111231</h2>
+    <h2>车牌号：shanA</h2>
+    <h2>工单类型：车辆清洗</h2>
+    </ion-item>
 
-  <ion-list no-lines inset>
+    </ion-list>
+  <ion-list no-lines inset *ngSwitchCase="'done'">
     <ion-item style="background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists" (click)="startPage(item)">
-      <div >{{item.ProductName}}</div>
-      <div >{{item.DiscountRate+"折"}}</div>
-      <p style="color:#f53d3d"> {{ "月销"+item.SalesVolume}} </p>
+      <div >服务单号：{{item.work_sheet_no}}</div>
+      <div >车牌号{{item.car_info.plate_no}}</div>
+      <p style="color:#f53d3d">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </p>
+      <p style="color:#f53d3d">服务状态 {{item.work_sheet_status_info.work_sheet_status_name}} </p>
       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
     </ion-item>
 
   </ion-list>
-
+  </div>
   <!--<div [ngSwitch]="pet">-->
     <!--<ion-list *ngSwitchCase="'puppies'">-->
       <!--<ion-item onclick="startPage()">-->
