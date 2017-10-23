@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, Toast} from 'ionic-angular';
-import { FormsModule }   from '@angular/forms'
 import {AppService} from "../../../providers/app.service";
 import {UserBase} from "../user/userbase";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';

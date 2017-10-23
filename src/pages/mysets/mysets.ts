@@ -6,6 +6,7 @@ import {AppService} from "../../providers/app.service";
 import {Md5} from "ts-md5/dist/md5";
 import {UserpageService} from "../userpage/userpage.service/userpage.service";
 import {UserBase} from "../userpage/user/userbase";
+import {Loginstate} from "../login/loginstate";
 @Component({
   selector: 'page-home',
   templateUrl: 'mysets.html'
@@ -36,7 +37,9 @@ export class MysetsPage {
 
 
 
-  constructor(public nav: NavController,public navParams: NavParams, public appService: AppService,public userPagerService: UserpageService,public userBase:UserBase){
+  constructor(public nav: NavController,public navParams: NavParams,
+              public appService: AppService,public userPagerService: UserpageService
+              ,public userBase:UserBase,public loginState:Loginstate){
 
 }
 
@@ -47,8 +50,9 @@ export class MysetsPage {
     this.lodUser();
   }
 private loadData(){
-  this.appService.httpPost(this._params, d => {
 
+
+  this.appService.httpPost(this._params, d => {
     let data = d.data;
     this.items = data['parking_site_list'];
     // console.log('111'+this.items[1]['parking_site_id']);

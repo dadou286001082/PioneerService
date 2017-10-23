@@ -1,19 +1,41 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{ item.productid }}
+      工单详情
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <div >
-    {{ item.ProductName }}
+    服务单号： {{ this.myworklistDetailData.work_sheet_num}}
   </div>
   <div>
-    ￥{{item.PromotionInfoPrice}}
+    车牌号：{{this.myworklistDetailData.plate_num}}
   </div>
   <div>
-    <span>{{item.QuanInfo}}</span>
-    <span>{{item.DiscountRate}}人</span>
+    车辆编号：{{this.myworklistDetailData.car_no}}
   </div>
+  <div>
+    取车位置：{{this.myworklistDetailData.parking_site_name}}
+  </div>
+  <div>
+    工单时间：{{this.myworklistDetailData.work_sheet_date_format}}
+  </div>
+  <div>
+    服务类型：{{this.myworklistDetailData.work_sheet_category_name}}
+  </div>
+  <div>
+    服务状态：{{ this.myworklistDetailData.work_sheet_status_name}}
+  </div>
+  <div>
+    工单描述：
+  </div>
+
+  <ion-list inset no-lines>
+    <ion-item id="item-style" ion-item *ngFor="let ii of myworklistsImg,let i = index">
+
+      <img style="" src={{ii.thumb}}>
+    </ion-item>
+
+  </ion-list>
 </ion-content>
