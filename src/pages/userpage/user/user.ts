@@ -71,7 +71,25 @@ export class UserPage {
   settings(){
     this.navCtrl.push(SettingsPage);
   }
+
+  /**
+   * 退出登录
+   */
   quitLog() {
+    this.jsonText={
+      user_id:this.userBase.user_id
+    }
+    this.params ={
+      route:'user/user/logout',
+      token:this.userBase.token,
+      jsonText:JSON.stringify(this.jsonText)
+
+    }
+
+
+
+
+
     let confirm = this.alerCtrl.create({
       title: '确认退出吗?',
 

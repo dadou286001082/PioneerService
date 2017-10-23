@@ -24,6 +24,8 @@ import {AboutusPage} from "../pages/userpage/aboutus/aboutus";
 import {UserBase} from "../pages/userpage/user/userbase";
 import {UserpageService}from '../pages/userpage/userpage.service/userpage.service';
 import {UserParticulars} from "../pages/userpage/user/userparticulars";
+import {SetUrl} from "../pages/userpage/settings/setUrl";
+
 import {MysetsService} from "../pages/mysets/mysets.service/mysets.service";
 import {MyworklistsService} from "../pages/myworklists/myworklists.service/myworklists.service";
 import {WelcomePage} from "../pages/welcome/welcome";
@@ -78,7 +80,8 @@ import {WelcomePage} from "../pages/welcome/welcome";
     AppService,
     UserpageService,
     UserBase,
-    UserParticulars
+    UserParticulars,
+    SetUrl
 
 
   ]
