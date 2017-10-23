@@ -3,6 +3,8 @@ import {NavController, NavParams, Toast} from 'ionic-angular';
 import {AppService} from "../../../providers/app.service";
 import {UserBase} from "../user/userbase";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {Loginstate} from "../../login/loginstate";
+
 @Component({
   selector: 'page-password',
   templateUrl: 'password.html'
@@ -23,7 +25,7 @@ export class PasswordPage {
   upState:string;//前后密码是否一致
 
   constructor(public navCtrl: NavController,public navParams :NavParams,public appService:AppService,
-              public userBase:UserBase, private formBuilder: FormBuilder
+              public userBase:UserBase, private formBuilder: FormBuilder,public loginstate:Loginstate
               ) {
     this.loginForm = formBuilder.group({
       // username: ['', Validators.compose([Validators.minLength(11), Validators.maxLength(11), Validators.required, Validators.pattern("^(13[0-9]|15[012356789]|17[03678]|18[0-9]|14[57])[0-9]{8}$")])],
@@ -41,21 +43,18 @@ export class PasswordPage {
     console.log("账号--"+  this.oldpassword+this.newpassword+this.twonewpassword);
     // console.log("密码--"+ this.loginForm.controls['password'] );
 
-    if ( this.newpassword!=this.twonewpassword) {
-     this.upState="* 新密码不一致";
-      console.log("密码不一样");
-    } else {
+
       this.upState="";
       console.log("密码一样");
 
       this.jsonText={
-        user_id:this.userBase.user_id,
+        user_id:this.loginstate.loginUserId,
         old_password:this.oldpassword,
         new_password:this.newpassword
       }
       this.params ={
         route:'user/user/editUserInfo',
-        token:this.userBase.token,
+        token:this.loginstate.token,
         jsonText:JSON.stringify(this.jsonText)
 
       }
@@ -73,11 +72,10 @@ export class PasswordPage {
       },true)
 
 
-    }
+
 
   }
   ionViewDidLoad(){
-
 
 }
 

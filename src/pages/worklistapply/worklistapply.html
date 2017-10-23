@@ -1,14 +1,17 @@
-<<ion-header>
-  <ion-navbar>
-    <ion-title >
-      <div style="font-size:medium;font-weight:bolder;display: flex;justify-content:center">
-        工单申请
-      </div>
-    </ion-title>
-
-  </ion-navbar>
+<ion-header id="header" style="background-color: #f9f9f9">
+  <div class="header-left" >
+    <img src="assets/img/zhanghao.png"/>
+  </div>
+  <div class = "header-city">
+    <span style="font-size:medium;">西安</span>
+  </div>
+  <div class="header-center">
+    <span style="font-size:large">我的站点</span>
+  </div>
+  <div class="header-right" (click)="onUsers()">
+    <img src={{this.userParticulars.thumb}}/>
+  </div>
 </ion-header>
-
 <ion-content>
 
   <div style="font-size:medium;font-weight:bolder;margin-top: 20px;margin-left:5%;margin-bottom: 10px">
@@ -47,9 +50,23 @@
   <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left:5%;">
     申请原因
   </div>
-  <div style="margin-left: 5%;">
+  <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input type="text" placeholder="" style="border: 2px solid gray; width: 90% ;height :200px" >
+      <input type="text" placeholder="" style="border: 2px solid gray; width: 100% ;height :200px" >
     </label>
+  </div>
+
+  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%">
+    <button padding="10px">+</button>
+    <button  padding="10px">+</button>
+    <button  padding="10px">+</button>
+  </div>
+  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%"margin-top="10px">
+    <button padding="10px">+</button>
+    <button  padding="10px">+</button>
+    <button  padding="10px">+</button>
+  </div>
+  <div padding>
+    <button (click)="workOk()" ion-button color="primary"   block>申请工单</button>
   </div>
 </ion-content>

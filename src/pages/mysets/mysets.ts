@@ -7,6 +7,8 @@ import {Md5} from "ts-md5/dist/md5";
 import {UserpageService} from "../userpage/userpage.service/userpage.service";
 import {UserBase} from "../userpage/user/userbase";
 import {Loginstate} from "../login/loginstate";
+import {UserParticulars} from "../userpage/user/userparticulars";
+
 @Component({
   selector: 'page-home',
   templateUrl: 'mysets.html'
@@ -39,7 +41,7 @@ export class MysetsPage {
 
   constructor(public nav: NavController,public navParams: NavParams,
               public appService: AppService,public userPagerService: UserpageService
-              ,public userBase:UserBase,public loginState:Loginstate){
+              ,public userBase:UserBase,public loginState:Loginstate,public userParticulars:UserParticulars){
 
 }
 
@@ -75,33 +77,34 @@ private loadData(){
    * 获取登录token
    */
   lodUser(){
-    this.jsonText1={
-      // mobile:'15900666666',
-      // password:'123456',
-      // code:Md5.hashStr('15900666666'+'poineer_api_nFWn18Wm')
-      mobile:'18629692029',
-      password:'123456',
-      code:Md5.hashStr('18629692029'+'poineer_api_nFWn18Wm')
+    this.jsonText={
+      user_id:this.loginState.loginUserId
     }
     this.params1 ={
-      route:'user/user/login',
-      jsonText:JSON.stringify(this.jsonText1)
+      route:'user/user/getUserDetail',
+      token:this.loginState.token,
+      jsonText:JSON.stringify(this.jsonText)
 
     }
-    //   "status": {
-    //     "succeed": "1"
-    //   },
-    //   "data": {
-    //     "user_id": "2",
-    //       "token": "90e83a273d0ef85420187e7450f98426"
-    //   }
-    // }
-    this.userPagerService.httpPost(this.params1,d=>{
-      // console.log("点击返回"+JSON.stringify(d));
-      this.userBase.succeed=d.status['succeed'];
-      this.userBase.user_id=d.data['user_id'];
-      this.userBase.token=d.data['token'];
-      console.log("登陆返回"+this.userBase.succeed+this.userBase.user_id+this.userBase.token);
+
+    this.appService.httpPost(this.params1,d=>{
+      // console.log("点击返回111"+JSON.stringify(d));
+      this.userParticulars.succeed=d.status['succeed'];
+      this.userParticulars.user_id=d.data.user_info['user_id'];
+      this.userParticulars.user_name=d.data.user_info['user_name'];
+      this.userParticulars.mobile=d.data.user_info['mobile'];
+      this.userParticulars.mobile_format=d.data.user_info['mobile_format'];
+      this.userParticulars.thumb=d.data.user_info.icon_image['thumb'];
+      this.userParticulars.source=d.data.user_info.icon_image['source'];
+      this.userParticulars.user_group_id=d.data.user_info.user_group_info['user_group_id']
+      this.userParticulars.user_group_name=d.data.user_info.user_group_info['user_group_name']
+
+
+
+      console.log("个人中心返回数据"+this.userParticulars.user_name+
+        this.userParticulars.mobile+this.userParticulars.mobile_format+this.userParticulars.thumb+ this.userParticulars.source+
+        this.userParticulars.user_group_id+this.userParticulars.user_group_name
+      );
     },true);
 
   }

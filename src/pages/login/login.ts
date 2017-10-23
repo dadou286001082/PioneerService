@@ -4,6 +4,9 @@ import {TabsPage} from "../tabs/tabs";
 import {AppService} from "../../providers/app.service";
 import {Md5} from "ts-md5/dist/md5";
 import {Loginstate} from "./loginstate";
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';//表单验证
+1
+
 @Component({
   templateUrl:'login.html',
   selector:'page-login'
@@ -12,16 +15,30 @@ import {Loginstate} from "./loginstate";
 //登录界面
 export class LoginPage{
   errorMessage: string;
+  //表单验证
+  loginForm: FormGroup;
+  usernames: any;
+  passwords: any;
 
   username :string;  //用户名
   password :string;  //密码
   jsonText;
   params;
-  constructor(public navCtrl: NavController,public appService: AppService,public loginState:Loginstate){
-
+  constructor(public navCtrl: NavController,public appService: AppService,public loginState:Loginstate, private formBuilder: FormBuilder){
+    this.loginForm = formBuilder.group({
+      usernames: ['', Validators.compose([ Validators.required])],
+      passwords: ['', Validators.compose([Validators.required])]
+    })
+    this.usernames = this.loginForm.controls['usernames'];
+    this.passwords = this.loginForm.controls['passwords'];
   }
 
+
   goToTabs(){
+    console.log("===+++++"+this.username+"---"+this.usernames);
+if(this.username=="undefined"||this.password=="undefined"){
+  console.log("=============")
+}else{
 
     this.jsonText  = {
       mobile:this.username,
@@ -54,6 +71,7 @@ export class LoginPage{
         this.loginState.loginPWD = this.password;
         this.loginState.loginState = res;
         this.loginState.token = d.data.token;
+        this.loginState.loginUserId=d.data['user_id'];
 
         this.appService.toast('登录成功');
         this.navCtrl.setRoot(TabsPage);
@@ -63,5 +81,8 @@ export class LoginPage{
       }
     }, true);
   }
+
+  }
+
 
 }

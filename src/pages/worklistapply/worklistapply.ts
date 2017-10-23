@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {UserPage} from "../userpage/user/user";
+import {UserParticulars} from "../userpage/user/userparticulars";
+
 
 @Component({
   selector: 'page-contact',
@@ -10,8 +13,14 @@ import { NavController } from 'ionic-angular';
  */
 export class WorklistapplyPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,public userParticulars:UserParticulars) {
 
   }
 
+  /**
+   * 进入个人中心
+   */
+  onUsers(){
+this.navCtrl.push(UserPage)
+  }
 }

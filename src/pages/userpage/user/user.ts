@@ -34,35 +34,7 @@ export class UserPage {
   ionViewDidLoad(){
 
 
-    this.jsonText={
-      user_id:this.userBase.user_id
-    }
-    this.params ={
-      route:'user/user/getUserDetail',
-      token:this.userBase.token,
-      jsonText:JSON.stringify(this.jsonText)
 
-    }
-
-    this.userpageService.httpPost(this.params,d=>{
-      // console.log("点击返回111"+JSON.stringify(d));
-      this.userParticulars.succeed=d.status['succeed'];
-      this.userParticulars.user_id=d.data.user_info['user_id'];
-      this.userParticulars.user_name=d.data.user_info['user_name'];
-      this.userParticulars.mobile=d.data.user_info['mobile'];
-      this.userParticulars.mobile_format=d.data.user_info['mobile_format'];
-      this.userParticulars.thumb=d.data.user_info.icon_image['thumb'];
-      this.userParticulars.source=d.data.user_info.icon_image['source'];
-      this.userParticulars.user_group_id=d.data.user_info.user_group_info['user_group_id']
-      this.userParticulars.user_group_name=d.data.user_info.user_group_info['user_group_name']
-
-
-
-      console.log("个人中心返回数据"+this.userParticulars.user_name+
-        this.userParticulars.mobile+this.userParticulars.mobile_format+this.userParticulars.thumb+ this.userParticulars.source+
-        this.userParticulars.user_group_id+this.userParticulars.user_group_name
-      );
-    },true);
   }
 
   intoUserDetails(){

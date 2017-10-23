@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import { NavController,NavParams} from 'ionic-angular';
 import {MyworklistsDetailPage} from "./myworklists-detail/myworklists-detail";
 import {AppService} from "../../providers/app.service";
+import {UserParticulars} from "../userpage/user/userparticulars";
+import {UserPage} from "../userpage/user/user";
 
 @Component({
   selector: 'page-about',
@@ -29,7 +31,7 @@ export class MyworklistsPage {
 
   mylists = [];
   errorMessage: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public appService: AppService,public userParticulars:UserParticulars) {
 
   }
   ionViewDidLoad(){
@@ -55,5 +57,12 @@ export class MyworklistsPage {
   }
   startPage(item) {
     this.navCtrl.push(MyworklistsDetailPage,{item:item});
+  }
+
+  /**
+   * 跳转到个人中心
+   */
+  onUser(){
+    this.navCtrl.push(UserPage);
   }
 }
