@@ -31,11 +31,10 @@
     工单描述：
   </div>
 
-  <ion-list inset no-lines>
-    <ion-item id="item-style" ion-item *ngFor="let ii of myworklistsImg,let i = index">
+ <div>
+    <li id="item-style"  *ngFor="let ii of myworklistsImg,let i = index">
+      <img src={{ii.thumb}}>
+    </li>
 
-      <img style="" src={{ii.thumb}}>
-    </ion-item>
-
-  </ion-list>
+ </div>
 </ion-content>
