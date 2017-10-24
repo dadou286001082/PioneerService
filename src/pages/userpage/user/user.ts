@@ -11,7 +11,7 @@ import {variable} from "@angular/compiler/src/output/output_ast";
 import {bindCallback} from "rxjs/observable/bindCallback";
 import {tokenize} from "@angular/compiler/src/ml_parser/lexer";
 import {UserParticulars} from "./userparticulars";
-
+import {LoginPage} from "../../login/login";
 
 /**
  * 个人中心页面
@@ -48,15 +48,15 @@ export class UserPage {
    * 退出登录
    */
   quitLog() {
-    this.jsonText={
-      user_id:this.userBase.user_id
-    }
-    this.params ={
-      route:'user/user/logout',
-      token:this.userBase.token,
-      jsonText:JSON.stringify(this.jsonText)
-
-    }
+    // this.jsonText={
+    //   user_id:this.userBase.user_id
+    // }
+    // this.params ={
+    //   route:'user/user/logout',
+    //   token:this.userBase.token,
+    //   jsonText:JSON.stringify(this.jsonText)
+    //
+    // }
 
 
 
@@ -75,6 +75,9 @@ export class UserPage {
         {
           text: '确认',
           handler: () => {
+            localStorage.removeItem("name");　 　//用于从本地存储中删除该项目
+            localStorage.removeItem("pasword");　 　//用于从本地存储中删除该项目
+            this.navCtrl.push(LoginPage);
             console.log('Agree clicked');
           }
         }

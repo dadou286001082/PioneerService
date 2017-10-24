@@ -4,6 +4,8 @@ import {TabsPage} from "../tabs/tabs";
 import {AppService} from "../../providers/app.service";
 import {Md5} from "ts-md5/dist/md5";
 import {Loginstate} from "./loginstate";
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';//表单验证
+1
 
 @Component({
   templateUrl:'login.html',
@@ -12,6 +14,11 @@ import {Loginstate} from "./loginstate";
 
 //登录界面
 export class LoginPage{
+  errorMessage: string;
+  //表单验证
+  loginForm: FormGroup;
+  usernames: any;
+  passwords: any;
 
   username :string;  //用户名
   password :string;  //密码
@@ -20,15 +27,15 @@ export class LoginPage{
   //记住账号密码
   nam:string;
   pas:string;
-  constructor(public navCtrl: NavController,public appService: AppService,public loginState:Loginstate,
+  constructor(public navCtrl: NavController,public appService: AppService,public loginState:Loginstate, private formBuilder: FormBuilder,
 
               ){
-    // this.loginForm = formBuilder.group({
-    //   usernames: ['', Validators.compose([ Validators.required])],
-    //   passwords: ['', Validators.compose([Validators.required])]
-    // })
-    // this.usernames = this.loginForm.controls['usernames'];
-    // this.passwords = this.loginForm.controls['passwords'];
+    this.loginForm = formBuilder.group({
+      usernames: ['', Validators.compose([ Validators.required])],
+      passwords: ['', Validators.compose([Validators.required])]
+    })
+    this.usernames = this.loginForm.controls['usernames'];
+    this.passwords = this.loginForm.controls['passwords'];
   }
 
 
@@ -86,8 +93,8 @@ ionViewDidLoad(){
   //记住账号密码
 this.nam=localStorage.getItem('name');
 this.pas=localStorage.getItem('pasword');
-console.log(localStorage.getItem('name')!=null);
-  if(localStorage.getItem('name')!=null&& localStorage.getItem('pasword')!=null){
+
+  if(localStorage.getItem('name')!=null && localStorage.getItem('pasword')!=null){
     console.log("------name"+ this.nam);
     console.log("------pas"+ this.pas);
     this.jsonText  = {

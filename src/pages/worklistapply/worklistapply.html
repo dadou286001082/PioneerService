@@ -19,16 +19,18 @@
   </div>
   <!-- 车牌号复选框 -->
   <div id="carnum-bg">
-    <ion-item style="float:left;margin: auto">
+    <ion-item style="float:left;">
       <!--<ion-label>Notifications</ion-label>-->
-      <ion-select [(ngModel)]="notifications" interface="action-sheet">
-        <ion-option value="enable" selected>陕</ion-option>
-        <ion-option value="mute" >晋</ion-option>
-        <ion-option value="mute_week">京</ion-option>
+      <ion-select [(ngModel)]="capital" interface="action-sheet" >
+
+
+        <ion-option value={{this.provlist.province_code_id}} *ngFor="let provlist of provinceList,let i = index">{{this.provlist.province_code_name}}</ion-option>
+
+        <!--<ion-option selected>陕</ion-option>-->
         <!--<ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>-->
       </ion-select>
     </ion-item>
-      <input type="text" placeholder="1105410 " style="border: 1px solid gray;height: 60px;flex:1">
+      <input type="text" placeholder=" " [(ngModel)]="carnumbser" style="border: 1px solid gray;height: 60px;flex:2">
   </div>
 
   <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left: 5%">
@@ -38,10 +40,10 @@
   <div id="cartype">
     <ion-item>
       <!--<ion-label>Notifications</ion-label>-->
-      <ion-select style="margin: auto" [(ngModel)]="notifications" interface="action-sheet">
-        <ion-option value="enable" selected>车辆保洁</ion-option>
-        <ion-option value="mute" >车辆保养</ion-option>
-        <ion-option value="mute_week">加油</ion-option>
+      <ion-select style="margin: auto" [(ngModel)]="works" interface="action-sheet">
+        <ion-option value={{this.work.work_sheet_category_id}} *ngFor="let work of workList">{{this.work.work_sheet_category_name}}</ion-option>
+        <!--<ion-option value="mute" >车辆保养</ion-option>-->
+        <!--<ion-option value="mute_week">加油</ion-option>-->
         <!--<ion-option value="mute_year" (ionSelect)="notificationSelect($event)">Mute for a year</ion-option>-->
       </ion-select>
     </ion-item>
@@ -52,12 +54,12 @@
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input type="text" placeholder="" style="border: 2px solid gray; width: 100% ;height :200px" >
+      <input type="text" placeholder="" [(ngModel)]="applyReason" style="border: 2px solid gray; width: 100% ;height :200px" >
     </label>
   </div>
 
   <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%">
-    <button padding="10px">+</button>
+    <button (click)="photo1()"  padding="10px">+</button>
     <button  padding="10px">+</button>
     <button  padding="10px">+</button>
   </div>
