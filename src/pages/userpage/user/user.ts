@@ -12,7 +12,7 @@ import {bindCallback} from "rxjs/observable/bindCallback";
 import {tokenize} from "@angular/compiler/src/ml_parser/lexer";
 import {UserParticulars} from "./userparticulars";
 import {LoginPage} from "../../login/login";
-
+import{ App } from 'ionic-angular';
 /**
  * 个人中心页面
  */
@@ -27,7 +27,7 @@ export class UserPage {
   params;
 
   constructor(public navCtrl: NavController,public alerCtrl: AlertController,public userpageService :UserpageService,
-              public userBase:UserBase,public userParticulars:UserParticulars
+              public userBase:UserBase,public userParticulars:UserParticulars,private app:App
               ) {}
 
 
@@ -77,7 +77,8 @@ export class UserPage {
           handler: () => {
             localStorage.removeItem("name");　 　//用于从本地存储中删除该项目
             localStorage.removeItem("pasword");　 　//用于从本地存储中删除该项目
-            this.navCtrl.push(LoginPage);
+            // this.navCtrl.push(LoginPage);
+            this.app.getRootNav().push(LoginPage);
             console.log('Agree clicked');
           }
         }
