@@ -32,6 +32,8 @@ import {MysetsService} from "../pages/mysets/mysets.service/mysets.service";
 import {MyworklistsService} from "../pages/myworklists/myworklists.service/myworklists.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {SetUrl} from "../pages/userpage/settings/setUrl";
+import { Camera, CameraOptions } from '@ionic-native/camera';//拍照
+import { ImagePicker } from '@ionic-native/image-picker';//读取本地照片库
 
 @NgModule({
   declarations: [
@@ -87,7 +89,9 @@ import {SetUrl} from "../pages/userpage/settings/setUrl";
     UserParticulars,
     MyworklistDetailData,
     Loginstate,
-    SetUrl
+    SetUrl,
+    Camera,
+    ImagePicker
   ]
 })
 export class AppModule {}

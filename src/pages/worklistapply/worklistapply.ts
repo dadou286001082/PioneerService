@@ -3,6 +3,12 @@ import { NavController } from 'ionic-angular';
 import {UserPage} from "../userpage/user/user";
 import {UserParticulars} from "../userpage/user/userparticulars";
 import {AppService} from "../../providers/app.service";
+import { Camera, CameraOptions } from '@ionic-native/camera';//拍照
+// import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';//文件
+import { ImagePicker } from '@ionic-native/image-picker';//读取本地照片库
+import { ActionSheetController } from "ionic-angular";
+import { AlertController } from 'ionic-angular';
+import {Loginstate} from "../login/loginstate";
 
 @Component({
   selector: 'page-contact',
@@ -12,8 +18,13 @@ import {AppService} from "../../providers/app.service";
  * 工单申请
  */
 export class WorklistapplyPage {
+
   jsonText;
   params;
+  image;//上传图片参数
+  imageBase;//每个图片url
+  work;//申请工单请求参数
+   images=[];//照片数组
   provinceList=[];//省份&id列表
   capital:string;//选择框选中省份
   carnumbser:string;//用户输入的车牌号
@@ -21,12 +32,64 @@ export class WorklistapplyPage {
   workList=[];//工单类型列表
   works:string;//选择框选中工单类型
   applyReason:string;//工单申请原因
-  constructor(public navCtrl: NavController,public userParticulars:UserParticulars,public appService:AppService) {
+//调用拍照参数
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
+  // 调用相册时传入的参数
+  private imagePickerOpt = {
+    maximumImagesCount: 1,//选择一张图片
+    width: 800,
+    height: 800,
+    quality: 80
+  };
+  constructor(public navCtrl: NavController,public userParticulars:UserParticulars,public appService:AppService,
+              public  camera:Camera,private actionSheetCtrl: ActionSheetController,public alerCtrl: AlertController,
+              public imagePicker :ImagePicker,public loginstate:Loginstate
+              ) {
 
   }
+
+
+
 //工单申请
   workOk(){
   console.log("省份"+this.capital+this.carnumbser+this.works+this.applyReason);
+    this.images.push( );
+  this.work={
+    province_code_id:this.capital,
+    plate_no:this.carnumbser,
+    work_sheet_category_id:this.works,
+    work_sheet_description:this.applyReason,
+    image_list:this.images
+  };
+    this.jsonText={
+      user_id:this.loginstate.loginUserId,
+      work_sheet_info:this.work
+
+  }
+    this.params ={
+      route:'work_sheet/work_sheet/applyWorkSheet',
+      token:this.loginstate.token,
+      jsonText:JSON.stringify(this.jsonText),
+    };
+
+    this.appService.httpPost(this.params,d=>{
+      console.log(JSON.stringify(d));
+      if(d.status['succeed']==1){
+
+        this.appService.toast("工单申请成功");
+
+      }else {
+        this.appService.toast("工单申请成功");
+      }
+      this.provinceList=d.data['province_code_list'];
+    },true)
+
+
 
   }
 
@@ -51,11 +114,67 @@ export class WorklistapplyPage {
 
 
   }
+
+
+
 //拍照第一张
   photo1(){
-  console.log("拍照第一张");
+    let confirm = this.alerCtrl.create({
+      // title: '请选择',
+
+      buttons: [
+        {
+          text: '拍照',
+          handler: () => {
+            console.log('Disagree clicked');
+            console.log("拍照第一张");
+            this.camera.getPicture(this.imagePickerOpt).then((imageData) => {
+              // imageData is either a base64 encoded string or a file URI
+              // If it's base64:
+              this.imageBase = 'data:image/jpeg;base64,' + imageData;
+
+            this.upPhoto();
+            }, (err) => {
+              // Handle error
+            });
+          }
+        },
+        {
+          text: '相册',
+          handler: () => {
+            this.imagePicker.getPictures(this.options).then((results) => {
+              for (var i = 0; i < results.length; i++) {
+                console.log('Image URI: ' + results[i]);
+              }
+            }, (err) => { });
+
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present()
+
+
+
   }
 
+  upPhoto(){
+    this.jsonText={
+      image_type:'16',
+
+    };
+    this.params ={
+      route:'base/tools/editImage',
+      jsonText:JSON.stringify(this.jsonText),
+      image:this.imageBase
+    }
+    this.appService.httpPost(this.params,d=>{
+      console.log(JSON.stringify(d));
+      this.images.push( d.data.image_info['thumb']);
+
+    },true)
+  }
 
   /**
    * 进入个人中心
@@ -63,4 +182,8 @@ export class WorklistapplyPage {
   onUsers(){
 this.navCtrl.push(UserPage)
   }
+
+
+
+
 }
