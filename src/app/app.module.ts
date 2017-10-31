@@ -35,6 +35,8 @@ import {SetUrl} from "../pages/userpage/settings/setUrl";
 import { Camera, CameraOptions } from '@ionic-native/camera';//拍照
 import { ImagePicker } from '@ionic-native/image-picker';//读取本地照片库
 
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import {File} from "@ionic-native/file";
 @NgModule({
   declarations: [
     MyApp,
@@ -91,7 +93,8 @@ import { ImagePicker } from '@ionic-native/image-picker';//读取本地照片库
     Loginstate,
     SetUrl,
     Camera,
-    ImagePicker
+    ImagePicker,
+    File,FileTransfer
   ]
 })
 export class AppModule {}

@@ -16,10 +16,8 @@ export class MyworklistsDetailPage{
   myworklistsImg = [];
   //获取到的值
   data;
-  plate_num;
-  work_sheet_num;
-  work_sheet_category_name;
-  work_sheet_status_name;
+  myworklistDetailData:MyworklistDetailData;
+
 
   jsonText: any = {
     user_id:'7',
@@ -31,7 +29,7 @@ export class MyworklistsDetailPage{
     token:'9a580777d6fed242ccd12d1be9b3652f',
     jsonText:JSON.stringify(this.jsonText)
   };
-  constructor(params: NavParams,public appService:AppService,public myworklistDetailData:MyworklistDetailData) {
+  constructor(params: NavParams,public appService:AppService) {
     this.item = params.data.item;
     console.log('1---'+JSON.stringify(this.item.work_sheet_no));
   }
