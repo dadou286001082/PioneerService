@@ -25,9 +25,10 @@ export class WorklistapplyPage {
   jsonText;
   params;
   image;//上传图片参数
-  imageBase;//每个图片url
+  imageBase;//拍照或相册选取返回数据
   work;//申请工单请求参数
-  images=[];//照片数组
+  imgurl;//上传图片返回每个图片url
+  images=[];//工单申请参数照片数组
 
   provinceList=[];//省份&id列表
   capital:string;//选择框选中省份
@@ -147,7 +148,7 @@ export class WorklistapplyPage {
             this.camera.getPicture(this.options).then((imageData) => {
               // imageData is either a base64 encoded string or a file URI
               // If it's base64:
-              this.appService.alert("拍照"+imageData);
+              // this.appService.alert("拍照"+imageData);
               // this.imageBase = 'data:image/jpeg;base64,' + imageData;
               this.imageBase = imageData;
               this.upPhoto();
@@ -164,6 +165,8 @@ export class WorklistapplyPage {
             this.imagePicker.getPictures(this.imagePickerOpt).then((results) => {
               for (var i = 0; i < results.length; i++) {
                 console.log('Image URI: ' + results[i]);
+                this.imageBase=results[i];
+                this.upPhoto();
               }
             }, (err) => { });
           }
@@ -184,7 +187,7 @@ export class WorklistapplyPage {
   }
 //上传图片
   upPhoto(){
-    this.appService.alert("上传图片:"+this.imageBase);
+    // this.appService.alert("上传图片:"+this.imageBase);
     this.jsonText={
       image_type:'16',
 
@@ -211,18 +214,19 @@ export class WorklistapplyPage {
     this.fileTransfer.upload(this.imageBase, encodeURI(APP_SERVE_URL)
       , options)
       .then((data) => {
-        this.appService.alert('上传成功返回：'+JSON.stringify(data));
+        this.appService.toast('上传成功');
 
         //照片添加到数组
-        // this.appService.alert('上传成功返回2：'+JSON.parse(data.response['data']['image_info']));
-        // this.images.push(data.response['data']);
-        // this.images.push(data.response['data']);
-        this.appService.alert('上传成功返回1：'+JSON.stringify(JSON.parse(data.response)));
-        this.appService.alert('上传成功返回2：'+JSON.parse(JSON.stringify(JSON.parse(data.response))).data);
+        this.images.push(JSON.parse(data.response).data.image_info['thumb']);
+        this.appService.alert('上传成功返回：'+JSON.parse(data.response).data.image_info['thumb']);
+        this.imgurl=JSON.parse(data.response).data.image_info['thumb'];
+
+
+
 
       }, (err) => {
         // error
-        this.appService.alert('上传失败返回：'+JSON.stringify(err));
+        this.appService.toast('上传失败');
       })
 
     // this.appService.httpPost(this.params,d　=>{
