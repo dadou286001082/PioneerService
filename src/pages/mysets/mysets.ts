@@ -101,9 +101,7 @@ private loadData(){
 
 
 
-      console.log("个人中心返回数据"+this.userParticulars.user_name+
-        this.userParticulars.mobile+this.userParticulars.mobile_format+this.userParticulars.thumb+ this.userParticulars.source+
-        this.userParticulars.user_group_id+this.userParticulars.user_group_name
+      console.log("头像"+this.userParticulars.thumb+"-----"+ this.userParticulars.source
       );
     },true);
 
