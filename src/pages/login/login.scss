@@ -41,7 +41,8 @@ page-login{
     display: flex;
     flex-direction: column;
     flex-flow: wrap;
-    background:url('assets/bg.jpg');
+    background-color: white;
+    background:url('../assets/img/splash.png')  no-repeat center;
   }
   #username-div{
     padding: 5px;

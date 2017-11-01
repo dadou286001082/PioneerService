@@ -5,7 +5,6 @@ import {AppService} from "../../providers/app.service";
 import {Md5} from "ts-md5/dist/md5";
 import {Loginstate} from "./loginstate";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';//表单验证
-1
 
 @Component({
   templateUrl:'login.html',
