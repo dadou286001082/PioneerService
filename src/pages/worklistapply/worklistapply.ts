@@ -97,9 +97,10 @@ export class WorklistapplyPage {
       if(d.status['succeed']==1){
 
         this.appService.toast("工单申请成功");
-        this.appService.alert(JSON.stringify(this.jsonText));
+        // this.appService.alert("工单申请成功"+JSON.stringify(this.jsonText));
       }else {
         this.appService.toast("工单申请失败");
+        // this.appService.alert("工单申请失败"+JSON.stringify(this.jsonText));
       }
 
     },true)
@@ -217,11 +218,10 @@ export class WorklistapplyPage {
         this.appService.toast('上传成功');
 
         //照片添加到数组
-        this.images.push(JSON.parse(data.response).data.image_info['thumb']);
-        this.appService.alert('上传成功返回：'+JSON.parse(data.response).data.image_info['thumb']);
+        this.images.push(JSON.parse(data.response).data.image_info['source']);
+        // this.appService.alert('上传成功返回：'+JSON.parse(data.response).data.image_info['source']);
         this.imgurl=JSON.parse(data.response).data.image_info['thumb'];
-
-
+        // document.getElementById('myimage')
 
 
       }, (err) => {
