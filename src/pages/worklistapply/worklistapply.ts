@@ -52,11 +52,13 @@ export class WorklistapplyPage {
   imgone;//第一张图片
 //调用拍照参数
   private options= {
-    quality: 50,
+    quality: 10,
     destinationType: 1, // Camera.DestinationType.FILE_URI,
     sourceType: 1, // Camera.PictureSourceType.CAMERA,
     encodingType: 0, // Camera.EncodingType.JPEG,
     mediaType: 0, // Camera.MediaType.PICTURE,
+    width: 80,
+    height: 80,
     // allowEdit: true,
     correctOrientation: true
     // quality: 100,
@@ -67,9 +69,9 @@ export class WorklistapplyPage {
   // 调用相册时传入的参数
   private imagePickerOpt = {
     maximumImagesCount: 1,//选择一张图片
-    width: 800,
-    height: 800,
-    quality: 80
+    width: 80,
+    height: 80,
+    quality: 50
   };
   constructor(public navCtrl: NavController,public userParticulars:UserParticulars,public appService:AppService,
               public  camera:Camera,private actionSheetCtrl: ActionSheetController,public alerCtrl: AlertController,
