@@ -23,7 +23,7 @@ import { APP_SERVE_URL} from "../../providers/app.global";
 export class WorklistapplyPage {
   num;//点击拍照按钮是哪个参数（1-6）
 
-  dele1:boolean=true;//删除照片按钮默认不显示，false
+  dele1:boolean=false;//删除照片按钮默认不显示，false
   dele2:boolean=false;
   dele3:boolean=false;
   dele4:boolean=false;
