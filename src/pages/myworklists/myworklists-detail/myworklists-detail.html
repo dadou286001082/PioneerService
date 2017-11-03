@@ -7,35 +7,37 @@
 </ion-header>
 <ion-content padding>
   <div >
-    服务单号： {{ this.myworklistDetailData.work_sheet_num}}
+    服务单号： {{myworklistDetailData.work_sheet_no}}
   </div>
   <div>
-    车牌号：{{this.myworklistDetailData.plate_num}}
+    车牌号：{{myworklistDetailData.plate_num}}
   </div>
   <div>
-    车辆编号：{{this.myworklistDetailData.car_no}}
+    车辆编号：{{myworklistDetailData.car_no}}
   </div>
   <div>
     取车位置：{{myworklistDetailData.parking_site_name}}
   </div>
   <div>
-    工单时间：{{this.myworklistDetailData.work_sheet_date_format}}
+    工单时间：{{myworklistDetailData.work_sheet_date_format}}
   </div>
   <div>
-    服务类型：{{this.myworklistDetailData.work_sheet_category_name}}
+    服务类型：{{myworklistDetailData.work_sheet_category_name}}
   </div>
   <div>
-    服务状态：{{ this.myworklistDetailData.work_sheet_status_name}}
+    服务状态：{{myworklistDetailData.work_sheet_status_name}}
   </div>
   <div>
     工单描述：
   </div>
 
  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%">
-    <li id="item-style"  *ngFor="let ii of myworklistsImg,let i = index">
+    <li id="item-style"  *ngFor="let ii of this.myworklistDetailData.myworklistsImg,let i = index">
       <img src={{ii.thumb}}>
     </li>
 
-   <ion-grid></ion-grid>
+   <ion-grid>
+
+   </ion-grid>
  </div>
 </ion-content>

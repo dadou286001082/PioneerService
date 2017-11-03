@@ -14,6 +14,7 @@ import { MyworklistsPage } from '../pages/myworklists/myworklists';
 import {MyworklistsDetailPage} from "../pages/myworklists/myworklists-detail/myworklists-detail";
 import {MyworklistDetailData} from "../pages/myworklists/myworklists-detail/myworklist-detail-data";
 
+
 import { WorklistapplyPage } from '../pages/worklistapply/worklistapply';
 import { MysetsPage } from '../pages/mysets/mysets';
 import {MysetsDetailPage} from "../pages/mysets/mysets-detail";
@@ -28,14 +29,13 @@ import {AboutusPage} from "../pages/userpage/aboutus/aboutus";
 import {UserBase} from "../pages/userpage/user/userbase";
 import {UserpageService}from '../pages/userpage/userpage.service/userpage.service';
 import {UserParticulars} from "../pages/userpage/user/userparticulars";
-import {MysetsService} from "../pages/mysets/mysets.service/mysets.service";
 import {MyworklistsService} from "../pages/myworklists/myworklists.service/myworklists.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {SetUrl} from "../pages/userpage/settings/setUrl";
-import { Camera, CameraOptions } from '@ionic-native/camera';//拍照
+import { Camera} from '@ionic-native/camera';//拍照
 import { ImagePicker } from '@ionic-native/image-picker';//读取本地照片库
 
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FileTransfer} from '@ionic-native/file-transfer';
 import {File} from "@ionic-native/file";
 @NgModule({
   declarations: [
@@ -83,7 +83,6 @@ import {File} from "@ionic-native/file";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MysetsService,
     MyworklistsService,
     AppService,
     UserpageService,

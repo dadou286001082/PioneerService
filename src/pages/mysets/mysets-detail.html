@@ -1,19 +1,38 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{ item.name }}
+      站点
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div >
-    {{ item.parking_site_name }}
+    {{ parking_site_name }}
   </div>
   <div>
-    {{item.parking_site_address}}
+    {{parking_site_address}}
   </div>
   <div>
-    <span>待处理 {{item.pending_work_sheet_count}}</span>
+    <span>待处理 {{pending_work_sheet_count}}</span>
   </div>
+
+  <div style="width:200%;height: 10px;background-color: #616161"></div>
+
+  <ion-list inset no-lines>
+    <ion-item style="display:flex;background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of workLists"
+              (click)=" openMySheetPage(item)">
+     <ion-row>
+      <ion-col  >
+        <div >服务单号：{{item.work_sheet_no}}</div>
+        <div >车牌号{{item.car_info.plate_no}}</div>
+        <p style="color:#f53d3d">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </p>
+        <p style="color:#f53d3d">服务状态 {{item.work_sheet_status_info.work_sheet_status_name}} </p>
+        <p style="color:gray"> {{item.work_sheet_date_format}} </p>
+      </ion-col >
+      <ion-buttons  style="border: 1px solid white;padding: 10px;
+  border-radius: 10px;margin:auto;background-color: #488aff;color: #f4f4f4"> 接收工单</ion-buttons>
+     </ion-row>
+    </ion-item>
+  </ion-list>
 </ion-content>

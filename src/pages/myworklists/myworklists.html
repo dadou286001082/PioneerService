@@ -40,7 +40,8 @@
 
     </ion-list>
   <ion-list no-lines inset *ngSwitchCase="'done'">
-    <ion-item style="background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists" (click)="startPage(item)">
+    <ion-item style="background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
+              (click)="startPage(item)">
       <div >服务单号：{{item.work_sheet_no}}</div>
       <div >车牌号{{item.car_info.plate_no}}</div>
       <p style="color:#f53d3d">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </p>

@@ -56,24 +56,27 @@ page-contact {
   }
 
   #carnum-bg{
-    margin: auto;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
-    border: 2px solid gray;
+    border: 1px solid darkgrey;
     justify-content:center;
     align-items:center;
-    //margin-left: 5%;
-    //margin-right: 5%;
     width:90%;
     border-radius: 5px;
+    height: auto;
   }
 #cartype{
-  margin: auto;
+
+  margin-left: 5%;
+  margin-right: 5%;
   display: flex;
   justify-content:center;
   align-items:center;
   width:90%;
-  border: 2px solid gray;
+  border: 1px solid darkgray;
   border-radius: 5px;
+  height: 50px;
 }
 
 }

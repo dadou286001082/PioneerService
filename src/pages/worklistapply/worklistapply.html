@@ -12,27 +12,30 @@
     <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 5px"src={{this.userParticulars.thumb}}/>
   </div>
 </ion-header>
-<ion-content>
+<ion-content style="margin-top: 5%">
 
   <div style="font-size:medium;font-weight:bolder;margin-top: 20px;margin-left:5%;margin-bottom: 10px">
        请输入车牌号
   </div>
   <!-- 车牌号复选框 -->
   <div id="carnum-bg">
-    <ion-item >
-      <ion-select style="margin: auto" [(ngModel)]="capital" interface="action-sheet" >
-        <ion-option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>
+    <ion-item  style="width: 50%">
+      <ion-select style="display: flex;float: right" placeholder="请选择" [(ngModel)]="capital" interface="action-sheet" >
+        <ion-option  *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>
       </ion-select>
     </ion-item>
-    <input type="text" placeholder=" " [(ngModel)]="carnumbser" style="border: 1px solid gray;height: 60px;flex:2">
+   <span style="font-size: x-large">|</span>
+    <ion-input type="text" placeholder="请输入车牌号" [(ngModel)]="carnumbser" style="border: 1px solid white;width:auto">
+    </ion-input>
   </div>
+
   <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left: 5%">
     请输入工单类型
   </div>
   <!-- 工单类型复选框 -->
   <div id="cartype">
-    <ion-item>
-      <ion-select style="margin: auto" [(ngModel)]="works" interface="action-sheet">
+    <ion-item style="margin: auto">
+      <ion-select placeholder="请选择" style="margin: auto" [(ngModel)]="works" interface="action-sheet">
         <ion-option value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
     </ion-item>
@@ -43,11 +46,11 @@
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input type="text" placeholder="" [(ngModel)]="applyReason" style="border: 2px solid gray; width: 100% ;height :200px" >
+      <input type="text" placeholder="" [(ngModel)]="applyReason" style="border: 1px solid darkgray; width: 100% ;height :200px" >
     </label>
   </div>
 
-  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%;margin-top: 20px">
+  <div style="display: flex;justify-content: space-between;margin-left:10%;margin-right:10%;margin-top: 20px">
     <img src="assets/img/tianjia.png" (click)="photo1()" id="img1">
 
     <img src="assets/img/tianjia.png" (click)="photo1()">
@@ -55,7 +58,7 @@
 
 
   </div>
-  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%"margin-top="10px">
+  <div style="display: flex;justify-content: space-between;margin-left:10%;margin-right: 10%"margin-top="10px">
     <img src="assets/img/tianjia.png" (click)="photo1()">
     <img src="assets/img/tianjia.png" (click)="photo1()">
     <img src="assets/img/tianjia.png" (click)="photo1()">
