@@ -12,30 +12,27 @@
     <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 5px"src={{this.userParticulars.thumb}}/>
   </div>
 </ion-header>
-<ion-content style="margin-top: 5%">
+<ion-content>
 
   <div style="font-size:medium;font-weight:bolder;margin-top: 20px;margin-left:5%;margin-bottom: 10px">
        请输入车牌号
   </div>
   <!-- 车牌号复选框 -->
   <div id="carnum-bg">
-    <ion-item  style="width: 50%">
-      <ion-select style="display: flex;float: right" placeholder="请选择" [(ngModel)]="capital" interface="action-sheet" >
-        <ion-option  *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>
+    <ion-item >
+      <ion-select style="margin: auto" [(ngModel)]="capital" interface="action-sheet" >
+        <ion-option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>
       </ion-select>
     </ion-item>
-   <span style="font-size: x-large">|</span>
-    <ion-input type="text" placeholder="请输入车牌号" [(ngModel)]="carnumbser" style="border: 1px solid white;width:auto">
-    </ion-input>
+    <input type="text" placeholder=" " [(ngModel)]="carnumbser" style="border: 1px solid gray;height: 60px;flex:2">
   </div>
-
   <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left: 5%">
     请输入工单类型
   </div>
   <!-- 工单类型复选框 -->
   <div id="cartype">
-    <ion-item style="margin: auto">
-      <ion-select placeholder="请选择" style="margin: auto" [(ngModel)]="works" interface="action-sheet">
+    <ion-item>
+      <ion-select style="margin: auto" [(ngModel)]="works" interface="action-sheet">
         <ion-option value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
     </ion-item>
@@ -46,23 +43,42 @@
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input type="text" placeholder="" [(ngModel)]="applyReason" style="border: 1px solid darkgray; width: 100% ;height :200px" >
+      <input type="text" placeholder="" [(ngModel)]="applyReason" style="border: 2px solid gray; width: 100% ;height :200px" >
     </label>
   </div>
 
-  <div style="display: flex;justify-content: space-between;margin-left:10%;margin-right:10%;margin-top: 20px">
-    <img src="assets/img/tianjia.png" (click)="photo1()" id="img1">
-
-    <img src="assets/img/tianjia.png" (click)="photo1()">
-    <img src="assets/img/tianjia.png" (click)="photo1()">
-
-
+  <!--第一排图片-->
+  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%;margin-top: 20px">
+    <div style="display: flex;position:relative;">
+      <img style="width:100px;height: 100px"src={{this.photoInitial1}} (click)="photo1(1)" >
+      <img id="div1" style="position:absolute;width:50px;height: 50px; align-items:flex-start;"src="assets/img/photo_delete.png"  *ngIf="dele1" (click)="deletes(1)" >
+    </div>
+    <div style="display: flex">
+      <img style="width:100px;height: 100px"src={{this.photoInitial2}} (click)="photo1(2)" >
+      <img style="width:10px;height: 10px; align-items:flex-start;"src="assets/img/photo_delete.png"  *ngIf="dele2"(click)="deletes(2)" >
+    </div>
+    <div style="display: flex">
+      <img style="width:100px;height: 100px"src={{this.photoInitial3}} (click)="photo1(3)" >
+      <img style="width:10px;height: 10px; align-items:flex-start;"src="assets/img/photo_delete.png"  *ngIf="dele3" (click)="deletes(3)" >
+    </div>
   </div>
-  <div style="display: flex;justify-content: space-between;margin-left:10%;margin-right: 10%"margin-top="10px">
-    <img src="assets/img/tianjia.png" (click)="photo1()">
-    <img src="assets/img/tianjia.png" (click)="photo1()">
-    <img src="assets/img/tianjia.png" (click)="photo1()">
+  <!--第二排图片-->
+  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%;margin-top: 20px">
+    <div style="display: flex">
+      <img style="width:80px;height: 80px"src={{this.photoInitial4}} (click)="photo1(4)" >
+      <img style="width:10px;height: 10px; align-items:flex-start;"src="assets/img/photo_delete.png"  *ngIf="dele4"(click)="deletes(4)" >
+    </div>
+    <div style="display: flex">
+      <img style="width:80px;height: 80px"src={{this.photoInitial5}} (click)="photo1(5)" >
+      <img style="width:10px;height: 10px; align-items:flex-start;"src="assets/img/photo_delete.png"  *ngIf="dele5"(click)="deletes(5)" >
+    </div>
+    <div style="display: flex">
+      <img style="width:80px;height: 80px"src={{this.photoInitial6}} (click)="photo1(6)" >
+      <img style="width:10px;height: 10px; align-items:flex-start;"src="assets/img/photo_delete.png"  *ngIf="dele6"(click)="deletes(6)" >
+    </div>
   </div>
+
+
   <div padding>
     <button (click)="workOk()" ion-button color="primary"   block>申请工单</button>
   </div>

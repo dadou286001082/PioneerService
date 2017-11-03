@@ -21,13 +21,25 @@ import { APP_SERVE_URL} from "../../providers/app.global";
  * 工单申请
  */
 export class WorklistapplyPage {
+  num;//点击拍照按钮是哪个参数（1-6）
 
+  dele1:boolean=true;//删除照片按钮默认不显示，false
+  dele2:boolean=false;
+  dele3:boolean=false;
+  dele4:boolean=false;
+  dele5:boolean=false;
+  dele6:boolean=false;
+  photoInitial1 ='assets/img/tianjia.png';
+  photoInitial2 ='assets/img/tianjia.png';
+  photoInitial3 ='assets/img/tianjia.png';
+  photoInitial4 ='assets/img/tianjia.png';
+  photoInitial5 ='assets/img/tianjia.png';
+  photoInitial6 ='assets/img/tianjia.png';
   jsonText;
   params;
   image;//上传图片参数
   imageBase;//拍照或相册选取返回数据
   work;//申请工单请求参数
-  imgurl;//上传图片返回每个图片url
   images=[];//工单申请参数照片数组
 
   provinceList=[];//省份&id列表
@@ -45,7 +57,7 @@ export class WorklistapplyPage {
     sourceType: 1, // Camera.PictureSourceType.CAMERA,
     encodingType: 0, // Camera.EncodingType.JPEG,
     mediaType: 0, // Camera.MediaType.PICTURE,
-    allowEdit: true,
+    // allowEdit: true,
     correctOrientation: true
     // quality: 100,
     // destinationType: this.camera.DestinationType.FILE_URI,
@@ -71,6 +83,7 @@ export class WorklistapplyPage {
 
 //工单申请
   workOk(){
+
     console.log("省份"+this.capital+this.carnumbser+this.works+this.applyReason);
     // this.images.push('http://218.244.158.175/xauto_poineer_server/image/catalog/work_sheet_image/work_sheet_image_c7975fa02.jpg');
 
@@ -98,6 +111,15 @@ export class WorklistapplyPage {
 
         this.appService.toast("工单申请成功");
         // this.appService.alert("工单申请成功"+JSON.stringify(this.jsonText));
+        this.photoInitial1 ='assets/img/tianjia.png';
+        this.photoInitial2 ='assets/img/tianjia.png';
+        this.photoInitial3 ='assets/img/tianjia.png';
+        this.photoInitial4 ='assets/img/tianjia.png';
+        this.photoInitial5 ='assets/img/tianjia.png';
+        this.photoInitial6 ='assets/img/tianjia.png';
+        this.images.length =0;//清空照片数组
+
+
       }else {
         this.appService.toast("工单申请失败");
         // this.appService.alert("工单申请失败"+JSON.stringify(this.jsonText));
@@ -134,7 +156,9 @@ export class WorklistapplyPage {
 
 
 //拍照第一张
-  photo1(){
+  photo1(nu){
+
+    this.num=nu;
     let actionSheet = this.actionSheetCtrl.create({
       // title: 'Albums',
       cssClass: 'action-sheets-basic-page',
@@ -219,29 +243,81 @@ export class WorklistapplyPage {
 
         //照片添加到数组
         this.images.push(JSON.parse(data.response).data.image_info['source']);
-        // this.appService.alert('上传成功返回：'+JSON.parse(data.response).data.image_info['source']);
-        this.imgurl=JSON.parse(data.response).data.image_info['thumb'];
-        // document.getElementById('myimage')
 
+
+
+if(this.num==1){
+  this.dele1=true;//上传成功显示删除按钮
+  this.photoInitial1=JSON.parse(data.response).data.image_info['source'];
+
+}
+else if (this.num==2){
+  this.dele2=true;
+  this.photoInitial2=JSON.parse(data.response).data.image_info['source'];
+}
+else if (this.num==3){
+  this.dele3=true;
+  this.photoInitial3=JSON.parse(data.response).data.image_info['source'];
+}
+else if (this.num==4){
+  this.dele4=true;
+  this.photoInitial4=JSON.parse(data.response).data.image_info['source'];
+}
+else if (this.num==5){
+  this.dele5=true;
+  this.photoInitial5=JSON.parse(data.response).data.image_info['source'];
+}
+else if (this.num==6){
+  this.dele6=true;
+  this.photoInitial6=JSON.parse(data.response).data.image_info['source'];
+}
 
       }, (err) => {
         // error
         this.appService.toast('上传失败');
       })
 
-    // this.appService.httpPost(this.params,d　=>{
-    //   // console.log(JSON.stringify(d));
-    //   // if(d.status.succeed ==1){
-    //     // console.log("图片上传成功");
-    //     // this.images.push( d.data.image_info['thumb']);
-    //     this.appService.alert("图片上传成功返回值为："+ JSON.stringify(d));
-    //     // this.imageBase = d.data.image_info['thumb']
-    //     // document.getElementById('img1');
-    //
-    //   // }
-    //
-    //
-    // },true)
+
+  }
+
+  /**
+   * 删除照片
+   */
+  deletes(de){
+
+if(de==1){
+  this.photoInitial1 ='assets/img/tianjia.png';
+  this.dele1=false;//点击删除按钮，删除照片，同时隐藏删除按钮
+  this.images.splice(0,1);
+
+}
+else if(de==2){
+  this.photoInitial2 ='assets/img/tianjia.png';
+  this.dele2=false;
+  this.images.splice(1,1);
+}
+else if(de==3){
+  this.photoInitial3 ='assets/img/tianjia.png';
+  this.dele3=false;
+  this.images.splice(2,1);
+}
+else if(de==4){
+  this.photoInitial4 ='assets/img/tianjia.png';
+  this.dele4=false;
+  this.images.splice(3,1);
+}
+else if(de==5){
+  this.photoInitial5='assets/img/tianjia.png';
+  this.dele5=false;
+  this.images.splice(4,1);
+}
+else if(de==6){
+  this.photoInitial6 ='assets/img/tianjia.png';
+  this.dele6=false;
+  this.images.splice(5,1);
+}
+
+
   }
 
   /**
