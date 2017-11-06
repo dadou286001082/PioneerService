@@ -9,8 +9,8 @@ import { ImagePicker } from '@ionic-native/image-picker';//读取本地照片库
 import { ActionSheetController,Platform } from "ionic-angular";
 import { AlertController } from 'ionic-angular';
 import {Loginstate} from "../login/loginstate";
-import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import {File} from "@ionic-native/file";
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';//文件上传
+import {File} from "@ionic-native/file";//文件读取
 import { APP_SERVE_URL} from "../../providers/app.global";
 
 @Component({
@@ -135,7 +135,7 @@ export class WorklistapplyPage {
 
 
   ionViewDidLoad(){
-
+  //获取车牌省份
     this.params ={
       route:'base/province_code/getProvinceCodeList'
     }
@@ -144,6 +144,7 @@ export class WorklistapplyPage {
       this.provinceList=d.data['province_code_list'];
     },true)
 
+    //获取工单类型
     this.params ={
       route:'base/work_sheet_category/getWorkSheetCategoryList'
     }
@@ -318,7 +319,6 @@ else if(de==6){
   this.dele6=false;
   this.images.splice(5,1);
 }
-
 
   }
 
