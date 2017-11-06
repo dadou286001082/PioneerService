@@ -92,7 +92,13 @@ export class SubmitworksheetPage{
    }
    this.appService.httpPost(this.params,d=>{
      if(d.status['succeed']==1){
-
+       //隐藏删除按钮
+       this.dele1=false;
+       this.dele2=false;
+       this.dele3=false;
+       this.dele4=false;
+       this.dele5=false;
+       this.dele6=false;
        this.appService.toast("工单提交成功");
        this.photoInitial1 ='assets/img/tianjia.png';
        this.photoInitial2 ='assets/img/tianjia.png';

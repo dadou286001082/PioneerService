@@ -41,7 +41,7 @@ export class WorklistapplyPage {
   imageBase;//拍照或相册选取返回数据
   work;//申请工单请求参数
   images=[];//工单申请参数照片数组
-
+  remark:string;//工单申请原因
   provinceList=[];//省份&id列表
   capital:string;//选择框选中省份
   carnumbser:string;//用户输入的车牌号
@@ -93,7 +93,7 @@ export class WorklistapplyPage {
       province_code_id:this.capital,
       plate_no:this.carnumbser,
       work_sheet_category_id:this.works,
-      work_sheet_description:this.applyReason,
+      work_sheet_description:this.remark,
       image_list:this.images
     };
     this.jsonText={
@@ -110,6 +110,13 @@ export class WorklistapplyPage {
     this.appService.httpPost(this.params,d=>{
       console.log(JSON.stringify(d));
       if(d.status['succeed']==1){
+      //隐藏删除按钮
+        this.dele1=false;
+        this.dele2=false;
+        this.dele3=false;
+        this.dele4=false;
+        this.dele5=false;
+        this.dele6=false;
 
         this.appService.toast("工单申请成功");
         // this.appService.alert("工单申请成功"+JSON.stringify(this.jsonText));
