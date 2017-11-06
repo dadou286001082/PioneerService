@@ -20,7 +20,7 @@ export class SubmitworksheetPage{
   params;
   num;//点击拍照按钮是哪个参数（1-6）
   imageBase;//拍照或相册选取返回数据
-  images=[];//工单提交参数照片数组
+  imagesWork=[];//工单提交参数照片数组
   dele1:boolean=false;//删除照片按钮默认不显示，false
   dele2:boolean=false;
   dele3:boolean=false;
@@ -82,7 +82,7 @@ export class SubmitworksheetPage{
      user_id:this.loginState.loginUserId,
      work_sheet_no:this.myworklistDetailData.work_sheet_no,
      work_sheet_comment:this.remark,
-     image_list:this.images
+     image_list:this.imagesWork
 
    };
    this.params ={
@@ -106,7 +106,7 @@ export class SubmitworksheetPage{
        this.photoInitial4 ='assets/img/tianjia.png';
        this.photoInitial5 ='assets/img/tianjia.png';
        this.photoInitial6 ='assets/img/tianjia.png';
-       this.images.length =0;//清空照片数组
+       this.imagesWork.length =0;//清空照片数组
 
 
      }else {
@@ -207,7 +207,7 @@ export class SubmitworksheetPage{
         this.appService.toast('上传成功');
         // this.appService.alert("上传返回"+JSON.stringify(data)+"-----"+this.params);
         //照片添加到数组
-        this.images.push(JSON.parse(data.response).data.image_info['source']);
+        this.imagesWork.push(JSON.parse(data.response).data.image_info['source']);
 
 
 
@@ -253,33 +253,33 @@ export class SubmitworksheetPage{
     if(de==1){
       this.photoInitial1 ='assets/img/tianjia.png';
       this.dele1=false;//点击删除按钮，删除照片，同时隐藏删除按钮
-      this.images.splice(0,1);
+      this.imagesWork.splice(0,1);
 
     }
     else if(de==2){
       this.photoInitial2 ='assets/img/tianjia.png';
       this.dele2=false;
-      this.images.splice(1,1);
+      this.imagesWork.splice(1,1);
     }
     else if(de==3){
       this.photoInitial3 ='assets/img/tianjia.png';
       this.dele3=false;
-      this.images.splice(2,1);
+      this.imagesWork.splice(2,1);
     }
     else if(de==4){
       this.photoInitial4 ='assets/img/tianjia.png';
       this.dele4=false;
-      this.images.splice(3,1);
+      this.imagesWork.splice(3,1);
     }
     else if(de==5){
       this.photoInitial5='assets/img/tianjia.png';
       this.dele5=false;
-      this.images.splice(4,1);
+      this.imagesWork.splice(4,1);
     }
     else if(de==6){
       this.photoInitial6 ='assets/img/tianjia.png';
       this.dele6=false;
-      this.images.splice(5,1);
+      this.imagesWork.splice(5,1);
     }
 
   }
