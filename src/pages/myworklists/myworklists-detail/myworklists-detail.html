@@ -30,14 +30,21 @@
   <div>
     工单描述：
   </div>
-
+  <div style="width:200%;height: 10px;background-color: #616161"></div>
  <div style="display: flex;justify-content: space-between;margin-left:5%;margin-right: 5%">
     <li id="item-style"  *ngFor="let ii of this.myworklistDetailData.myworklistsImg,let i = index">
       <img src={{ii.thumb}}>
     </li>
 
-   <ion-grid>
+   <!--<ion-grid>-->
 
-   </ion-grid>
+   <!--</ion-grid>-->
  </div>
+  <div style="display: flex;
+  justify-content:center;
+  align-items:center;">
+    <button ion-button round >确定接收工单</button>
+  </div>
+
+
 </ion-content>

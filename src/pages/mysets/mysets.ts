@@ -15,12 +15,10 @@ import {UserParticulars} from "../userpage/user/userparticulars";
 })
 //用户我的站点页面
 export class MysetsPage {
-  jsonText1;
   params1;
 
   index;
   items = [];
-  errorMessage: string;
 
   pagination:any = {
     page:'1',
@@ -68,6 +66,14 @@ private loadData(){
 
   openNavDetailsPage(item) {
     this.nav.push(MysetsDetailPage, { item: item });
+  }
+  //下拉刷新
+  doRefresh(refresher) {
+   this.loadData();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   intoUserPage(){
