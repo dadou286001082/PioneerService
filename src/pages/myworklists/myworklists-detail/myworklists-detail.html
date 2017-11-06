@@ -40,11 +40,16 @@
 
    <!--</ion-grid>-->
  </div>
-  <div style="display: flex;
-  justify-content:center;
-  align-items:center;">
-    <button ion-button round >确定接收工单</button>
-  </div>
+
+
 
 
 </ion-content>
+
+<ion-footer style="margin-bottom: 30px">
+  <div style="display: flex;
+  justify-content:center;
+  align-items:center;">
+    <button id = 'btn' ion-button round (click)="operateSheet()">确定接收工单</button>
+  </div>
+</ion-footer>

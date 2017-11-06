@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      工单详情
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div >
+    服务单号： {{item.data.work_sheet_no}}
+  </div>
+  <div>
+    车牌号：{{item.data.plate_num}}
+  </div>
+  <div>
+    车辆编号：{{item.data.car_no}}
+  </div>
+  <div>
+    取车位置：{{item.data.parking_site_name}}
+  </div>
+  <div>
+    工单时间：{{item.data.work_sheet_date_format}}
+  </div>
+  <div>
+    服务类型：{{item.data.work_sheet_category_name}}
+  </div>
+  <div>
+    服务状态：{{item.data.work_sheet_status_name}}
+  </div>
+  <div>
+    工单描述：
+  </div>
+  <div style="width:200%;height: 10px;background-color: #616161"></div>
+  <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left:5%;">
+    备注
+  </div>
+  <div style="margin-left: 5%;margin-right: 5%">
+    <label >
+      <input type="text" placeholder="" [(ngModel)]="applyReason" style="border: 2px solid gray; width: 100% ;height :200px" >
+    </label>
+  </div>
+
+
+</ion-content>
+
+<ion-footer style="margin-bottom: 30px">
+  <div style="display: flex;
+  justify-content:center;
+  align-items:center;">
+    <button id = 'btn' ion-button round (click)="submit()">确定接收工单</button>
+  </div>
+</ion-footer>

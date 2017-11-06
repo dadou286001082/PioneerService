@@ -14,7 +14,7 @@ import { MyworklistsPage } from '../pages/myworklists/myworklists';
 import {MyworklistsDetailPage} from "../pages/myworklists/myworklists-detail/myworklists-detail";
 import {MyworklistDetailData} from "../pages/myworklists/myworklists-detail/myworklist-detail-data";
 
-
+import {SubmitworksheetPage} from "../pages/submitworksheet/submitworksheet";
 import { WorklistapplyPage } from '../pages/worklistapply/worklistapply';
 import { MysetsPage } from '../pages/mysets/mysets';
 import {MysetsDetailPage} from "../pages/mysets/mysets-detail";
@@ -29,7 +29,6 @@ import {AboutusPage} from "../pages/userpage/aboutus/aboutus";
 import {UserBase} from "../pages/userpage/user/userbase";
 import {UserpageService}from '../pages/userpage/userpage.service/userpage.service';
 import {UserParticulars} from "../pages/userpage/user/userparticulars";
-import {MyworklistsService} from "../pages/myworklists/myworklists.service/myworklists.service";
 import {WelcomePage} from "../pages/welcome/welcome";
 import {SetUrl} from "../pages/userpage/settings/setUrl";
 import { Camera} from '@ionic-native/camera';//拍照
@@ -47,6 +46,7 @@ import {File} from "@ionic-native/file";
     MysetsPage,
     MysetsDetailPage,
     MyworklistsDetailPage,
+    SubmitworksheetPage,
     TabsPage,
     UserPage,
     UserDetailsPage,
@@ -72,6 +72,7 @@ import {File} from "@ionic-native/file";
     MysetsPage,
     MysetsDetailPage,
     MyworklistsDetailPage,
+    SubmitworksheetPage,
     TabsPage,
     UserPage,
     UserDetailsPage,
@@ -83,7 +84,6 @@ import {File} from "@ionic-native/file";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MyworklistsService,
     AppService,
     UserpageService,
     UserBase,
