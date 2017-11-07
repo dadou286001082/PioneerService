@@ -21,6 +21,7 @@ import { APP_SERVE_URL} from "../../providers/app.global";
  * 工单申请
  */
 export class WorklistapplyPage {
+  selectCar;//车牌默认显示 陕
   num;//点击拍照按钮是哪个参数（1-6）
 
   dele1:boolean=false;//删除照片按钮默认不显示，false
@@ -142,13 +143,18 @@ export class WorklistapplyPage {
 
 
   ionViewDidLoad(){
-  //获取车牌省份
+
+
+    //获取车牌省份
     this.params ={
       route:'base/province_code/getProvinceCodeList'
     }
     this.appService.httpPost(this.params,d=>{
       console.log(JSON.stringify(d));
       this.provinceList=d.data['province_code_list'];
+      this.capital=d.data['province_code_list'][0].province_code_id;//默认车牌为 陕
+      // this.selectCar=d.data['province_code_list'][0].province_code_name;
+      // console.log("车牌默认"+d.data['province_code_list'][0].province_code_id+"----"+this.capital);
     },true)
 
     //获取工单类型

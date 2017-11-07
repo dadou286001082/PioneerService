@@ -19,31 +19,42 @@
   </div>
   <!-- 车牌号复选框 -->
   <div id="carnum-bg">
-    <ion-item >
-      <ion-select style="margin: auto" [(ngModel)]="capital" interface="action-sheet" >
-        <ion-option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>
-      </ion-select>
-    </ion-item>
-    <input type="text" placeholder=" " [(ngModel)]="carnumbser" style="border: 1px solid gray;height: 60px;flex:2">
+    <label >
+      <select class="info-select"   [(ngModel)]="capital"   >
+        <option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</option>
+      </select>
+    </label>
+    <img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">
+    <div style="border-left:1px solid #E5E5E5;width:0.5px;height:25px;"> </div>
+    <!--<ion-item>-->
+      <!--<ion-select    style="margin: auto;  " [(ngModel)]="capital" interface="action-sheet" >-->
+        <!--<ion-option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>-->
+      <!--</ion-select>-->
+    <!--</ion-item>-->
+    <input class="info-input" type="text" placeholder=" " [(ngModel)]="carnumbser" >
   </div>
+
+
+
   <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left: 5%">
     请输入工单类型
   </div>
   <!-- 工单类型复选框 -->
   <div id="cartype">
-    <ion-item>
-      <ion-select style="margin: auto" [(ngModel)]="works" interface="action-sheet">
+    <ion-item class="info-select-item">
+      <ion-select class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
         <ion-option value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
     </ion-item>
+    <img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">
   </div>
 
-  <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left:5%;">
+  <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 40px;margin-left:5%;">
     申请原因
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input type="text" placeholder="" [(ngModel)]="remark" style="border: 2px solid gray; width: 100% ;height :200px" >
+      <input  type="text" placeholder="" [(ngModel)]="remark" style="border: 1px solid gray; border-radius: 5px;width: 100% ;height :200px;" >
     </label>
   </div>
 
