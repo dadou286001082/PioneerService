@@ -1,8 +1,3 @@
-<!--<ion-header>-->
-  <!--<ion-navbar>-->
-    <!--<ion-title>我的站点</ion-title>-->
-  <!--</ion-navbar>-->
-<!--</ion-header>-->
 <ion-header id="header" style="background-color: #f9f9f9">
   <div class="header-left" >
     <img src="assets/img/zhanghao.png"/>
@@ -27,16 +22,16 @@
       refreshingText="刷新完毕">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list inset no-lines>
+  <ion-list inset no-lines  style="background-color:#f4f4f4">
     <ion-item id="item-style" ion-item *ngFor="let item of items,let i = index" (click)="openNavDetailsPage(item)">
-       <div style="font-size: large;margin: 3px;">
+       <div style="color:black;font-size: large;margin: 3px;">
       {{ item.parking_site_name }}
     </div>
-      <div style="font-size: medium">
+      <div style="color:#616161;font-size: medium">
         {{item.parking_site_address}}
     </div>
       <div>
-        <span style="font-size: medium">待处理 {{item.pending_work_sheet_count}}</span>
+        <span style="color:#616161;font-size: medium">待处理 ({{item.pending_work_sheet_count}})</span>
     </div>
       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
     </ion-item>

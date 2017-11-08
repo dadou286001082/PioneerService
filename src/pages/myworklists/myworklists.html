@@ -30,23 +30,23 @@
   </ion-refresher>
   <div [ngSwitch]="myworklistType">
     <ion-list no-lines inset *ngSwitchCase="'undone'">
-      <ion-item style="background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
+      <ion-item style="background-color:white;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
                 (click)="startPage(item)">
-        <div >服务单号：{{item.work_sheet_no}}</div>
-        <div >车牌号{{item.car_info.plate_no}}</div>
-        <p style="color:#f53d3d">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </p>
-        <p style="color:#f53d3d">服务状态 {{item.work_sheet_status_info.work_sheet_status_name}} </p>
+        <div style="margin-top: 2px;margin-bottom: 2px">服务单号：{{item.work_sheet_no}}</div>
+        <div style="margin-top: 2px;margin-bottom: 2px">车牌号{{item.car_info.plate_no}}</div>
+        <div style="margin-top: 2px;margin-bottom: 2px;">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </div>
+        <div style="margin-top: 2px;margin-bottom: 2px;color:#f53d3d">服务状态 {{item.work_sheet_status_info.work_sheet_status_name}} </div>
         <ion-icon name="ios-arrow-forward" item-right></ion-icon>
       </ion-item>
 
     </ion-list>
-  <ion-list no-lines inset *ngSwitchCase="'done'">
-    <ion-item style="background-color:aliceblue;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
+  <ion-list style="background-color: #f9f9f9" no-lines inset *ngSwitchCase="'done'">
+    <ion-item style="background-color:white;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
               (click)="startPage(item)">
-      <div >服务单号：{{item.work_sheet_no}}</div>
-      <div >车牌号{{item.car_info.plate_no}}</div>
-      <p style="color:#f53d3d">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </p>
-      <p style="color:#f53d3d">服务状态 {{item.work_sheet_status_info.work_sheet_status_name}} </p>
+      <div style="margin-top: 2px;margin-bottom: 2px">服务单号：{{item.work_sheet_no}}</div>
+      <div style="margin-top: 2px;margin-bottom: 2px">车牌号{{item.car_info.plate_no}}</div>
+      <div style="margin-top:2px;margin-bottom: 2px;">工单类型 :{{item.work_sheet_category_info.work_sheet_category_name}} </div>
+      <div style="margin-top: 2px;margin-bottom: 2px;color:#f53d3d">服务状态 {{item.work_sheet_status_info.work_sheet_status_name}} </div>
       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
     </ion-item>
 
