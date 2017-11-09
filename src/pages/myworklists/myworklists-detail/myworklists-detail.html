@@ -35,29 +35,34 @@
   <div>
     工单描述：
   </div>
-  <div id="div-control" style="margin-top: 30px;display: flex;justify-content: center">
-    <div style="float:left; margin:0 20px; display:inline;width: 150px;height: 150px">
-    <img src="assets/img/car_unlock_defult.png">
+
+  <div id="div-control" style="margin-top: 30px;display: flex;justify-content: center;">
+    <div style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px">
+    <img style="width: 50px;height: 50px" src="assets/img/car_unlock_defult.png">
     <p >打开车门</p>
     </div>
-    <div  style="align-items: center; float:left; margin:0 20px; display:inline;width: 150px;height: 150px">
-    <img src="assets/img/car_unlock_defult.png">
+    <div  style="align-items: center; float:left; margin:0 20px; display:inline;width: 70px;height: 70px">
+    <img style="width: 50px;height: 50px"src="assets/img/car_unlock_defult.png">
     <p>锁闭车辆</p>
     </div>
-    <div  style="float:left; margin:0 20px; display:inline;width: 150px;height: 150px">
-    <img src="assets/img/car_unlock_defult.png">
+    <div  style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px">
+    <img style="width: 50px;height: 50px"src="assets/img/car_unlock_defult.png">
     <p>鸣笛找车</p>
     </div>
   </div>
-  <div style="margin-top: 50px;width:200%;height: 10px;background-color: #f9f9f9"></div>
-  <div>
-   <ion-grid   *ngFor="let ii of this.myworklistDetailData.myworklistsImg,let i = index">
+
+  <div style="margin-top: 150px;width:200%;height: 10px;background-color: #f9f9f9"></div>
+  <div >
+   <ion-grid  >
+
    <ion-row >
-     <ion-col  col-3>
-       <img src={{ii.thumb}}>
+     <ion-col   >
+       <img  style="width: 100px;height: 100px;margin: 1px" *ngFor="let ii of this.myworklistDetailData.myworklistsImg,let i = index"  src={{ii.thumb}}>
      </ion-col>
    </ion-row>
+
  </ion-grid>
+
   </div>
 
 
