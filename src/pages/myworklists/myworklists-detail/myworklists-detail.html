@@ -37,15 +37,15 @@
   </div>
 
   <div id="div-control" style="margin-top: 30px;display: flex;justify-content: center;">
-    <div style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px">
+    <div style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px" (click)="openCar()" >
     <img style="width: 50px;height: 50px" src="assets/img/car_unlock_defult.png">
     <p >打开车门</p>
     </div>
-    <div  style="align-items: center; float:left; margin:0 20px; display:inline;width: 70px;height: 70px">
+    <div  style="align-items: center; float:left; margin:0 20px; display:inline;width: 70px;height: 70px" (click)="stopCar()">
     <img style="width: 50px;height: 50px"src="assets/img/car_unlock_defult.png">
     <p>锁闭车辆</p>
     </div>
-    <div  style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px">
+    <div  style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px" (click)="musicCar()" >
     <img style="width: 50px;height: 50px"src="assets/img/car_unlock_defult.png">
     <p>鸣笛找车</p>
     </div>

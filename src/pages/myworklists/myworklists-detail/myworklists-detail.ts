@@ -146,4 +146,65 @@ export class MyworklistsDetailPage{
   // }
   //
 
+  //打开车门
+  openCar(){
+
+    this.jsonText = {
+      user_id:this.loginState.loginUserId,
+      work_sheet_no:this.item.work_sheet_no,
+      operator_type:'1'
+    }
+    this.params ={
+      route:'car/car/operatorCar',
+      token:this.loginState.token,
+      jsonText:JSON.stringify(this.jsonText)
+    };
+    this.appService.httpPost(this.params,d=>{
+    if(d.status['succeed']==1){
+      this.appService.toast("打开车门成功");
+    }else{
+      this.appService.toast("打开车门失败");
+    }
+    },true)
+  }
+  //关闭车门
+  stopCar(){
+    this.jsonText = {
+      user_id:this.loginState.loginUserId,
+      work_sheet_no:this.item.work_sheet_no,
+      operator_type:'2'
+    }
+    this.params ={
+      route:'car/car/operatorCar',
+      token:this.loginState.token,
+      jsonText:JSON.stringify(this.jsonText)
+    };
+    this.appService.httpPost(this.params,d=>{
+      if(d.status['succeed']==1){
+        this.appService.toast("关闭车门成功");
+      }else{
+        this.appService.toast("关闭车门失败");
+      }
+    },true)
+  }
+  //鸣笛
+  musicCar(){
+    this.jsonText = {
+      user_id:this.loginState.loginUserId,
+      work_sheet_no:this.item.work_sheet_no,
+      operator_type:'3'
+    }
+    this.params ={
+      route:'car/car/operatorCar',
+      token:this.loginState.token,
+      jsonText:JSON.stringify(this.jsonText)
+    };
+    this.appService.httpPost(this.params,d=>{
+      if(d.status['succeed']==1){
+        this.appService.toast("鸣笛成功");
+      }else{
+        this.appService.toast("鸣笛失败");
+      }
+    },true)
+  }
 }
