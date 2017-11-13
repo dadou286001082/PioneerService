@@ -12,13 +12,13 @@
     <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 5px"(click)="onUser()" src={{this.userParticulars.thumb}}/>
   </div>
 </ion-header>
-<ion-content padding>
-  <ion-toolbar>
-    <ion-segment [(ngModel)]="myworklistType"  (ionChange)="sysChanged()">
-      <ion-segment-button value="undone" (click) = "loadData('2')">
+<ion-content style="background-color: #efeef3">
+  <ion-toolbar  style="background-color: #efeef3">
+    <ion-segment style="background-color: #efeef3" [(ngModel)]="myworklistType"  (ionChange)="sysChanged()">
+      <ion-segment-button style="font-weight: bolder" value="undone" (click) = "loadData('2')">
         未完成
       </ion-segment-button>
-      <ion-segment-button value="done" (click) = "loadData('3')">
+      <ion-segment-button style="font-weight: bolder"  value="done" (click) = "loadData('3')">
         已完成
       </ion-segment-button>
     </ion-segment>
