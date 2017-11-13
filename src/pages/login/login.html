@@ -1,27 +1,24 @@
-<ion-header id="header" >
-  <div class="header-left" (click)="goBack();">
-    <ion-icon name="ios-arrow-back" item-left></ion-icon>
-  </div>
-  <div class="header-center">
-    <span>登录</span>
-  </div>
-  <div class="header-right">
-    <span></span>
-  </div>
-</ion-header>
+
 <ion-content class="content">
+  <div style="margin-left: 10px;margin-top: 20px;">
+    <span style="font-size: xx-large;color: #488aff">Hey,</span>
+    <br/>
+    <span style="font-weight: bolder">您的劳动是对我们最大的支持</span>
+  </div>
+
+
   <div id="username-div">
-  <img src="assets/img/zhanghao.png" style="margin: auto;width: 50px;height: 50px">
+  <img src="assets/img/zhanghao.png" style="margin: auto;width: 40px;height:40px">
 
   <ion-input [(ngModel)]="username"type="text" style="margin: auto" placeholder="用户名/邮箱/已验证手机">
     </ion-input>
 
   </div>
   <div id="password-div">
-    <img src="assets/img/password.png" style="margin: auto;width: 50px;height: 50px">
+    <img src="assets/img/password.png" style="margin: auto;width: 40px;height: 40px">
 
     <ion-input  [(ngModel)]="password"  placeholder="请输入密码" clearInput type="text"style="padding-left: 15px"></ion-input>
-    <span style="margin: auto;color: #488aff">获取验证码</span>
+    <!--<span style="margin: auto;color: #488aff">获取验证码</span>-->
 
   </div>
 

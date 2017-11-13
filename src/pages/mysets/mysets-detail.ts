@@ -76,6 +76,10 @@ export class MysetsDetailPage {
         if(d.status['succeed']=='1'){
           console.log('获取待结单成功'+d);
           this.workLists = d.data['work_sheet_list'];
+          if(this.workLists.length == 0){
+            console.log("无列表"+this.workLists.length);
+            document.getElementById('img_nolist').style.display = 'block';
+          }
           // this.parking_site_name= d.data['parking_site_info']['parking_site_name'];
           // this.parking_site_address= d.data['parking_site_info']['parking_site_address'];
           // this.pending_work_sheet_count= d.data['parking_site_info']['pending_work_sheet_count'];

@@ -1,4 +1,4 @@
-<ion-header id="header" style="background-color: #f9f9f9">
+<ion-header id="header">
   <div class="header-left" >
     <img src="assets/img/zhanghao.png"/>
   </div>
@@ -22,7 +22,7 @@
       refreshingText="刷新完毕">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list inset no-lines  style="background-color:#f4f4f4">
+  <ion-list inset no-lines  style="background-color:#efeef3">
     <ion-item id="item-style" ion-item *ngFor="let item of items,let i = index" (click)="openNavDetailsPage(item)">
        <div style="color:black;font-size: large;margin: 3px;">
       {{ item.parking_site_name }}

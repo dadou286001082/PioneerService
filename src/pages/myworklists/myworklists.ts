@@ -54,6 +54,12 @@ export class MyworklistsPage {
       this.mylists= data['work_sheet_list'];
       if(d.status['succeed']=='1'){
         console.log('获取工单成功');
+        if(this.mylists.length == 0){
+          console.log('无列表'+this.mylists.length);
+          document.getElementById('img_nolist').style.display = 'block';
+        }else{
+          document.getElementById('img_nolist').style.display = 'none';
+        }
       }else{
         console.log('获取工单失败');
       }

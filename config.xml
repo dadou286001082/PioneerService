@@ -21,12 +21,12 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/splash.png" />
-        <icon density="mdpi" src="resources/android/splash.png" />
-        <icon density="hdpi" src="resources/android/splash.png" />
-        <icon density="xhdpi" src="resources/android/splash.png" />
-        <icon density="xxhdpi" src="resources/android/splash.png" />
-        <icon density="xxxhdpi" src="resources/android/splash.png" />
+        <icon density="ldpi" src="resources/android/icon.png" />
+        <icon density="mdpi" src="resources/android/icon.png" />
+        <icon density="hdpi" src="resources/android/icon.png" />
+        <icon density="xhdpi" src="resources/android/icon.png" />
+        <icon density="xxhdpi" src="resources/android/icon.png" />
+        <icon density="xxxhdpi" src="resources/android/icon.png" />
         <splash density="land-ldpi" src="resources/android/splash.png" />
         <splash density="land-mdpi" src="resources/android/splash.png" />
         <splash density="land-hdpi" src="resources/android/splash.png" />

@@ -41,13 +41,13 @@ page-login{
     display: flex;
     flex-direction: column;
     flex-flow: wrap;
+    margin-top: 50px;
     background-color: white;
-    background:url('../assets/img/splash.png')  no-repeat center;
   }
   #username-div{
     padding: 5px;
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 30px;
     display: flex;
     margin-right:10%;
     margin-left:10%;
@@ -56,10 +56,10 @@ page-login{
   #password-div{
     padding: 5px;
     border:1px solid gray;
-    border-radius: 20px;
+    border-radius: 30px;
     display: flex;
     margin-right:10%;
     margin-left:10%;
-    margin-top:30px
+    margin-top:20px
   }
 }

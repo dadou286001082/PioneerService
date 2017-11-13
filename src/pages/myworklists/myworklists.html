@@ -2,8 +2,11 @@
   <div class="header-left">
     <img src="assets/img/zhanghao.png"/>
   </div>
+  <div class = "header-city">
+    <span style="font-size:medium;">西安</span>
+  </div>
   <div class="header-center">
-    <span>工单列表</span>
+    <span style="font-size:large">工单列表</span>
   </div>
   <div class="header-right">
     <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 5px"(click)="onUser()" src={{this.userParticulars.thumb}}/>
@@ -28,6 +31,10 @@
       refreshingText="刷新完毕">
     </ion-refresher-content>
   </ion-refresher>
+  <div id="img_nolist" style="margin:auto;margin-top: 30px;width:130px;height: 130px;text-align:center;display:none;">
+    <img src="./assets/img/ic_common_notice.png">
+    <p>暂无待处理订单</p>
+  </div>
   <div [ngSwitch]="myworklistType">
     <ion-list no-lines inset *ngSwitchCase="'undone'">
       <ion-item style="background-color:white;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
