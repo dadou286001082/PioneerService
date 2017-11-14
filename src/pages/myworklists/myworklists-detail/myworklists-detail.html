@@ -5,7 +5,7 @@
     </ion-title>
   </ion-navbar>
   <div style="display: flex;justify-content: center">
-    <button class="button">
+    <button style="padding: 20px;background-color: #488aff;color: white" class="button">
       导航
     </button>
   </div>
@@ -35,23 +35,23 @@
   <div>
     工单描述：
   </div>
-
-  <div id="div-control" style="margin:auto;margin-top: 30px;display: flex;justify-content: center;text-align: center">
-    <div style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px" (click)="openCar()" >
+  <div style="margin-top: 20px;width:200%;height: 10px;background-color: #f9f9f9"></div>
+  <div *ngIf="ifShow" style="display: flex;text-align:center;margin-top: 20px;">
+    <div  style="width: 31%;height: 70px;" (click)="openCar()" >
     <img style="width: 50px;height: 50px" src="assets/img/car_unlock_defult.png">
     <p >打开车门</p>
     </div>
-    <div  style="align-items: center; float:left; margin:0 20px; display:inline;width: 70px;height: 70px" (click)="stopCar()">
+    <div  style="width:31%;height: 70px;" (click)="stopCar()">
     <img style="width: 50px;height: 50px"src="assets/img/car_unlock_defult.png">
     <p>锁闭车辆</p>
     </div>
-    <div  style="float:left; margin:0 20px; display:inline;width: 70px;height: 70px" (click)="musicCar()" >
+    <div  style="width:31%;height: 70px;" (click)="musicCar()" >
     <img style="width: 50px;height: 50px"src="assets/img/car_unlock_defult.png">
     <p>鸣笛找车</p>
     </div>
   </div>
 
-  <div style="margin-top: 150px;width:200%;height: 10px;background-color: #f9f9f9"></div>
+
   <div >
    <ion-grid  >
 
@@ -70,9 +70,9 @@
 </ion-content>
 
 <ion-footer id = 'footer'>
-  <div style="display: flex;
+  <div style="background-color:white;display: flex;
   justify-content:center;
   align-items:center;">
-    <button id = 'btn' ion-button round (click)="operateSheet()">确定接收工单</button>
+    <button style="width: 90%" id = 'btn' ion-button round (click)="operateSheet()">确定接收工单</button>
   </div>
 </ion-footer>

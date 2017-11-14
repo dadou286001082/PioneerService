@@ -16,6 +16,7 @@ import {SubmitworksheetPage} from "../../submitworksheet/submitworksheet";
 
 export class MyworklistsDetailPage{
 
+  ifShow:boolean=false;//默认不显示操作汽车按钮
   item; //上个页面传来的对应的某一条参数
   //获取到的值
   jsonText;
@@ -62,15 +63,15 @@ export class MyworklistsDetailPage{
        switch (this.myworklistDetailData.work_sheet_status_id){
          case '31':console.log("待结单");
            document.getElementById('btn').textContent = '确定接收工单';
-           document.getElementById('div-control').style.display='none';
+           this.ifShow = false;
          break;
          case '41':console.log("进行中");
            document.getElementById('btn').textContent = '完成后提交工单';
-           document.getElementById('div-control').style.display='block';
+           this.ifShow = true;
            break;
          case '51':console.log("已完成");
            document.getElementById('footer').style.visibility = 'hidden';
-           document.getElementById('div-control').style.display='none';
+           this.ifShow = false;
            break;
        }
       }else{
