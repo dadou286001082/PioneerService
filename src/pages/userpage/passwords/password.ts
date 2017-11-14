@@ -26,6 +26,7 @@ export class PasswordPage {
 
   constructor(public navCtrl: NavController,public navParams :NavParams,public appService:AppService,
               public userBase:UserBase, private formBuilder: FormBuilder,public loginstate:Loginstate
+
               ) {
     this.loginForm = formBuilder.group({
       // username: ['', Validators.compose([Validators.minLength(11), Validators.maxLength(11), Validators.required, Validators.pattern("^(13[0-9]|15[012356789]|17[03678]|18[0-9]|14[57])[0-9]{8}$")])],
@@ -78,5 +79,8 @@ export class PasswordPage {
   ionViewDidLoad(){
 
 }
+  passWordBack(){
+    this.navCtrl.pop();
+  }
 
 }

@@ -91,4 +91,7 @@ if(d.data.config_list[0]['data']['need_update']==0) {
 
 
   }
+  settingBack(){
+    this.navCtrl.pop();
+  }
 }

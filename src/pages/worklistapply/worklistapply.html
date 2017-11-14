@@ -1,4 +1,4 @@
-<ion-header id="header">
+<ion-header id="header" style="background-color: #ffffff">
   <div class="header-left" >
     <img src="assets/img/zhanghao.png"/>
   </div>
@@ -6,28 +6,36 @@
     <span style="font-size:medium;">西安</span>
   </div>
   <div class="header-center">
-    <span style="font-size:large">工单申请</span>
+    <span style="font-size:16px;color: #000000">工单申请</span>
   </div>
   <div class="header-right" (click)="onUsers()">
-    <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 5px"src={{this.userParticulars.thumb}}/>
+    <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 10px;margin-right: 10px"src={{this.userParticulars.thumb}}/>
   </div>
+
 </ion-header>
+
 <ion-content>
 
-  <div style="font-size:medium;font-weight:bolder;margin-top: 20px;margin-left:5%;margin-bottom: 10px">
+  <div style="font-size:14px;margin-top: 20px;margin-left:5%;margin-bottom: 10px">
        请输入车牌号
   </div>
   <!-- 车牌号复选框 -->
   <div id="carnum-bg">
-    <label >
-      <select class="info-select"   [(ngModel)]="capital"   >
-        <option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</option>
-      </select>
-    </label>
+    <!--<label >-->
+      <!--<ion-select class="info-select"   [(ngModel)]="capital"  interface="action-sheet" >-->
+        <!--<option   style="color:black;background-color:#ffffff;" *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</option>-->
+      <!--</ion-select>-->
+    <!--</label>-->
+    <ion-item-divider class="info_car_select_item">
+      <ion-select class="info-select"   [(ngModel)]="capital"  interface="popover" >
+        <ion-option   style="color:black;background-color:#ffffff;" *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>
+      </ion-select>
+    </ion-item-divider>
+
     <img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">
     <div style="border-left:1px solid #E5E5E5;width:0.5px;height:25px;"> </div>
     <!--<ion-item>-->
-      <!--<ion-select    style="margin: auto;  " [(ngModel)]="capital" interface="action-sheet" >-->
+      <!--<ion-select    style="margin: auto;  " [(ngModel)]="capital" inter:0.5pxaction-sheet" >-->
         <!--<ion-option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>-->
       <!--</ion-select>-->
     <!--</ion-item>-->
@@ -36,25 +44,29 @@
 
 
 
-  <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 50px;margin-left: 5%">
+  <div style="margin-bottom: 10px;font-size:14px;margin-top: 50px;margin-left: 5%">
     请输入工单类型
   </div>
   <!-- 工单类型复选框 -->
   <div id="cartype">
-    <ion-item class="info-select-item">
+    <!--<ion-item   class="info-select-item">-->
+
+
+<ion-item-divider class="info-select-item">
       <ion-select class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
-        <ion-option value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
+        <ion-option   style="    -webkit-appearance:none;-moz-appearance:none;appearance:none;color: #000;" value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
-    </ion-item>
+</ion-item-divider>
+    <!--</ion-item>-->
     <img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">
   </div>
 
-  <div style="margin-bottom: 10px;font-size:medium;font-weight:bolder;margin-top: 40px;margin-left:5%;">
+  <div style="margin-bottom: 10px;font-size:14px;margin-top: 40px;margin-left:5%;">
     申请原因
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input  type="text" placeholder="" [(ngModel)]="remark" style="border: 1px solid gray; border-radius: 5px;width: 100% ;height :200px;" >
+      <input  type="text" placeholder="" [(ngModel)]="remark" style="border: 1px solid gray; border-radius: 5px;width: 100% ;height :200px;border-color: #c7c7c7;" >
     </label>
   </div>
 

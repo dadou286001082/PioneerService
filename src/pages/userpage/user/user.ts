@@ -37,6 +37,7 @@ export class UserPage {
 
   }
 
+
   intoUserDetails(){
     this.navCtrl.push(UserDetailsPage);
   }
@@ -86,4 +87,11 @@ export class UserPage {
     });
     confirm.present()
   }
+  userBack(){
+    this.navCtrl.pop();
+
+  }
+
+
+
 }

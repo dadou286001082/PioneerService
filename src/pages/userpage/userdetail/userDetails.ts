@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PasswordPage} from "../passwords/password";
 import {UserParticulars} from "../user/userparticulars";
+import {UserPage} from "../user/user";
 
 @Component({
   selector: 'page-user-details',
@@ -20,11 +21,12 @@ export class UserDetailsPage {
    * 进入修改密码
    */
   upPassword(){
-
-
-
-
-
     this.navCtrl.push(PasswordPage);
   }
+
+
+  userDetailsBack(){
+    this.navCtrl.pop();
+  }
+
 }

@@ -3,7 +3,7 @@ import { NavController,NavParams } from 'ionic-angular';
 import {AppService} from "../../../providers/app.service";
 import { Http, Response, Headers/*, BaseRequestOptions*/ } from '@angular/http';
 import {SetUrl} from "../settings/setUrl";
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';//内部加载页面iframe标签
 /**
  *  关于我们页面
  */
@@ -39,6 +39,8 @@ ionViewDidLoad(){
 
 
 }
-
+  aboutusBack(){
+  this.navCtrl.pop();
+  }
 
 }

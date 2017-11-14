@@ -1,18 +1,15 @@
-<<ion-header>
-  <ion-navbar>
-    <ion-title >
-      <div style="display: flex;justify-content:center">
+<<ion-header id="aboutus_header">
+  <img  class="aboutus_header_img" (click)="aboutusBack()"   src="assets/img/fanhui.png">
+      <div class="aboutus_header_div" style="display: flex;justify-content:center">
         关于我们
       </div>
-    </ion-title>
 
-  </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-<div>
-<iframe [src]="srcUrl"></iframe>
+<div style="width: 100%;height: 100%">
+<iframe style="width: 100%;height: 100%" [src]="srcUrl"></iframe>
 </div>
 
 </ion-content>
