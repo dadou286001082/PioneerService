@@ -43,6 +43,9 @@ page-login{
     flex-flow: wrap;
     margin-top: 50px;
     background-color: white;
+    background-image: url(../assets/img/loginbg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;width:100%;heigth:100%
   }
   #username-div{
     padding: 5px;

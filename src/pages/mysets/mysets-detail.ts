@@ -7,6 +7,9 @@ import {MyworklistsDetailPage} from "../myworklists/myworklists-detail/myworklis
 })
 
 export class MysetsDetailPage {
+
+  ifShow_mysets:boolean=false;//是否显示暂无订单图片
+
   item; //上个页面返回的某一条的参数
   params;   //向站点服务器上传的参数
   jsonText;
@@ -78,7 +81,9 @@ export class MysetsDetailPage {
           this.workLists = d.data['work_sheet_list'];
           if(this.workLists.length == 0){
             console.log("无列表"+this.workLists.length);
-            document.getElementById('img_nolist').style.display = 'block';
+           this.ifShow_mysets = true;
+          }else{
+            this.ifShow_mysets = false;
           }
           // this.parking_site_name= d.data['parking_site_info']['parking_site_name'];
           // this.parking_site_address= d.data['parking_site_info']['parking_site_address'];
