@@ -48,22 +48,18 @@
     请选择工单类型
   </div>
   <!-- 工单类型复选框 -->
-  <div id="cartype">
     <!--<ion-item   class="info-select-item">-->
-
-
-      <ion-item-divider class="info-select-item">
-
-      <ion-select id="selectCar" class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
+  <!--<div style=" display: flex;background-color:black;width: 180%;margin-left: 5%;margin-right: 5%">-->
+    <ion-item  class="info-select-item">
+      <ion-select  class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
         <ion-option  value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
-
-</ion-item-divider>
+    </ion-item>
+  <!--</div>-->
     <!--</ion-item>-->
-    <img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">
-  </div>
+    <!--<img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">-->
 
-  <div style="margin-bottom: 10px;font-size:14px;margin-top: 40px;margin-left:5%;">
+  <div style="margin-bottom: 10px;font-size:14px;margin-left:5%;">
     请输入申请原因
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
