@@ -11,20 +11,20 @@
   </div>
 </ion-header>
 
-<ion-content style="margin: 2%" >
-  <div style="color:black;font-size: large;margin: 3px;">
+<ion-content  >
+  <div style="color:black;font-size: large;margin: 3px;margin-top: 10px;margin-left: 10px;">
     {{ parking_site_name }}
   </div>
-  <div style="color:#616161;font-size: medium">
+  <div style="color:#616161;font-size: medium;margin-top: 10px;margin-left: 10px;">
     {{parking_site_address}}
   </div>
-  <div style="color:#616161;font-size: medium">
+  <div style="color:#616161;font-size: medium;margin-top: 10px;margin-left: 10px;">
     <span>待处理 {{pending_work_sheet_count}}</span>
   </div>
 
-  <div style="width:100%;height: 15px;background-color: #f9f9f9"></div>
-  <div *ngIf="ifShow_mysets" style="width:130px;height: 130px;text-align:center;margin:auto;margin-top: 30px;">
-    <img src="./assets/img/ic_common_notice.png">
+  <div style="width:100%;height: 15px;background-color: #efeef3"></div>
+  <div *ngIf="ifShow_mysets" style="width:150px;height: 150px;text-align:center;margin:auto;margin-top: 30px;">
+    <img style="width:100px;height: 100px;" src="./assets/img/ic_common_notice.png">
     <p>暂无待处理订单</p>
   </div>
   <ion-list inset no-lines style="background-color:#f4f4f4">

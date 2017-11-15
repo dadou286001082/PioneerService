@@ -12,17 +12,15 @@
     <img style="border-radius:15px;width: 30px;height: 30px;margin-top: 5px"(click)="onUser()" src={{this.userParticulars.thumb}}/>
   </div>
 </ion-header>
-<ion-content style="background-color: #efeef3">
-  <ion-toolbar  style="background-color: #efeef3">
-    <ion-segment style="background-color: #efeef3" [(ngModel)]="myworklistType"  (ionChange)="sysChanged()">
-      <ion-segment-button style="font-weight: bolder" value="undone" (click) = "loadData('2')">
+<ion-content style="background-color: white">
+    <ion-segment style="background-color:#efeef3" [(ngModel)]="myworklistType"  (ionChange)="sysChanged()">
+      <ion-segment-button style="font-size:small;font-weight:bolder" value="undone" (click) = "loadData('2')">
         未完成
       </ion-segment-button>
-      <ion-segment-button style="font-weight: bolder"  value="done" (click) = "loadData('3')">
+      <ion-segment-button style="font-size:small;font-weight: bolder"  value="done" (click) = "loadData('3')">
         已完成
       </ion-segment-button>
     </ion-segment>
-  </ion-toolbar>
   <ion-refresher  (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
@@ -31,8 +29,8 @@
       refreshingText="刷新完毕">
     </ion-refresher-content>
   </ion-refresher>
-  <div id="img_nolist" style="margin:auto;margin-top: 30px;width:130px;height: 130px;text-align:center;display:none;">
-    <img src="./assets/img/ic_common_notice.png">
+  <div *ngIf="ifShow_myworklists" style="width:150px;height: 150px;text-align:center;margin:auto;margin-top: 30px;">
+    <img style="width:100px;height: 100px;" src="./assets/img/ic_common_notice.png">
     <p>暂无待处理订单</p>
   </div>
   <div [ngSwitch]="myworklistType">

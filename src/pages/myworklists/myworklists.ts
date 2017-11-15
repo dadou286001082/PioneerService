@@ -15,7 +15,7 @@ import {Loginstate} from "../login/loginstate";
 
 export class MyworklistsPage {
   myworklistType: string = 'undone';
-
+  ifShow_myworklists:boolean=false;//是否显示暂无订单图片
 
   pagination;
   jsonText;
@@ -56,9 +56,9 @@ export class MyworklistsPage {
         console.log('获取工单成功');
         if(this.mylists.length == 0){
           console.log('无列表'+this.mylists.length);
-          document.getElementById('img_nolist').style.display = 'block';
+          this.ifShow_myworklists = true;
         }else{
-          document.getElementById('img_nolist').style.display = 'none';
+          this.ifShow_myworklists = false;
         }
       }else{
         console.log('获取工单失败');
