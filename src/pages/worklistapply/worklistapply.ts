@@ -145,6 +145,7 @@ export class WorklistapplyPage {
   ionViewDidLoad(){
 
 
+
     //获取车牌省份
     this.params ={
       route:'base/province_code/getProvinceCodeList'

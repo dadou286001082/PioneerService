@@ -65,7 +65,8 @@ export class UserPage {
 
     let confirm = this.alerCtrl.create({
       title: '确认退出吗?',
-
+      enableBackdropDismiss:true,
+      cssClass:'projectList',
       buttons: [
         {
           text: '取消',
@@ -86,6 +87,43 @@ export class UserPage {
       ]
     });
     confirm.present()
+
+    // let alertUserNameError = this.alerCtrl.create({
+    //   title:"Login Info",
+    //   subTitle:"please enter a valid UserName",
+    //   message:'UserName can not be empty...',
+    //   buttons:["OK"],
+    //   cssClass:'danger',
+    //   inputs:["text","password"],
+    //   enableBackdropDismiss:true });
+    // alertUserNameError.present();
+
+
+
+
+//     let alert = this.alerCtrl.create({
+//       cssClass:'projectList',
+//     });
+//     alert.setTitle('项目分类列表');
+//
+//
+//
+//     alert.addButton('取消');
+//     alert.addButton({
+//       text: '关注',
+//       handler: data => {
+//         console.log('Checkbox data:', data);
+// //      this.testCheckboxOpen = false;
+// //        this.testCheckboxResult = data;
+//       }
+//     });
+//     alert.present();
+
+
+
+
+
+
   }
   userBack(){
     this.navCtrl.pop();

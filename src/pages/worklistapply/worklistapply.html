@@ -52,10 +52,12 @@
     <!--<ion-item   class="info-select-item">-->
 
 
-<ion-item-divider class="info-select-item">
-      <ion-select class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
-        <ion-option   style="    -webkit-appearance:none;-moz-appearance:none;appearance:none;color: #000;" value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
+      <ion-item-divider class="info-select-item">
+
+      <ion-select id="selectCar" class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
+        <ion-option  value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
+
 </ion-item-divider>
     <!--</ion-item>-->
     <img style=" width: 40px;height: 30px;padding-right: 10px" src="assets/img/zhanghao.png">

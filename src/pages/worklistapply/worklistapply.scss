@@ -69,9 +69,11 @@ page-contact {
     background-color: #ffffff;
   }
 #cartype{
+  position: relative;
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
+
   border: 1px solid darkgrey;
   border-color: #c7c7c7;
   justify-content:center;
@@ -121,27 +123,42 @@ page-contact {
   .info-select-two{
 
     margin: auto;
-    font-size: 14px;
-    overflow: hidden; /*隐藏了小三角，因为宽度为110px,而select宽度为130px*/
-    border-width:0px;
     -webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
+    background-color: #ffffff;
+    height: 45px;
+    //opacity: 0.01;
 
   }
   .info-select-item{
-    margin: auto;
+    //margin: auto;
     //border-bottom: none;
     //border-bottom-color: #ffffff;
     //text-decoration:none;
     //overflow: hidden;
+
     border: none;
-    //overflow: hidden; /*隐藏了小三角，因为宽度为110px,而select宽度为130px*/
+    overflow: hidden; /*隐藏了小三角，因为宽度为110px,而select宽度为130px*/
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
 
   }
   .info_car_select_item{
     height: 45px;
     width: 90px;
     border: none;
+  }
+  .worklistapp_div_work{
+    position: relative;
+  //  left:40px;
+  //left: 0;
+  //  top: 5px;
+    width: 50px;
+    margin: auto;
+
+
+
   }
 }
