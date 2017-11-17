@@ -21,6 +21,11 @@ import { APP_SERVE_URL} from "../../providers/app.global";
  * 工单申请
  */
 export class WorklistapplyPage {
+  returnCarNum =''; //返回的车牌号
+  returnCarMark=''; //返回的车牌编号
+  returnPark='';//返回停车场名称
+  stateCar =false;//m默认不显示车辆信息
+
   selectCar;//车牌默认显示 陕
   num;//点击拍照按钮是哪个参数（1-6）
 
@@ -42,13 +47,13 @@ export class WorklistapplyPage {
   imageBase;//拍照或相册选取返回数据
   work;//申请工单请求参数
   images=[];//工单申请参数照片数组
-  remark:string;//工单申请原因
+  remark:string='';//工单申请原因
   provinceList=[];//省份&id列表
   capital:string;//选择框选中省份
-  carnumbser:string;//用户输入的车牌号
+  carnumbser:string='';//用户输入的车牌号
 
   workList=[];//工单类型列表
-  works:string;//选择框选中工单类型
+  works:string='';//选择框选中工单类型
   applyReason:string;//工单申请原因
   imgone;//第一张图片
 //调用拍照参数
@@ -58,9 +63,10 @@ export class WorklistapplyPage {
     sourceType: 1, // Camera.PictureSourceType.CAMERA,
     encodingType: 0, // Camera.EncodingType.JPEG,
     mediaType: 0, // Camera.MediaType.PICTURE,
-    width: 80,
-    height: 80,
-    // allowEdit: true,
+    Width: 160,
+    Height: 160,
+    allowEdit: true,
+
     correctOrientation: true
     // quality: 100,
     // destinationType: this.camera.DestinationType.FILE_URI,
@@ -70,8 +76,8 @@ export class WorklistapplyPage {
   // 调用相册时传入的参数
   private imagePickerOpt = {
     maximumImagesCount: 1,//选择一张图片
-    width: 80,
-    height: 80,
+    allowEdit: true,
+
     quality: 50
   };
   constructor(public navCtrl: NavController,public userParticulars:UserParticulars,public appService:AppService,
@@ -86,8 +92,23 @@ export class WorklistapplyPage {
 
 //工单申请
   workOk(){
+      // var s =  document.getElementById('inputs').nodeValue;
+   if(this.carnumbser.length==0){
+     this.appService.toast("请输入车牌号")
+    }
+   else if(this.works.length==0){
 
-    console.log("省份"+this.capital+this.carnumbser+this.works+this.applyReason);
+     this.appService.toast("请输入工单类型")
+   }
+   else if(this.remark.length==0){
+
+     this.appService.toast("请输入申请原因")
+    }
+  else{
+
+
+
+    console.log("省份"+this.capital+"---"+this.carnumbser+"---"+this.works+"---"+this.remark);
     // this.images.push('http://218.244.158.175/xauto_poineer_server/image/catalog/work_sheet_image/work_sheet_image_c7975fa02.jpg');
 
     this.work={
@@ -120,6 +141,10 @@ export class WorklistapplyPage {
         this.dele6=false;
 
         this.appService.toast("工单申请成功");
+        this.stateCar=false;//隐藏车辆信息
+        this.carnumbser='';//清空车牌号
+        this.works='';//清空工单列表
+        this.remark='';//清空申请原因
         // this.appService.alert("工单申请成功"+JSON.stringify(this.jsonText));
         this.photoInitial1 ='assets/img/tianjia.png';
         this.photoInitial2 ='assets/img/tianjia.png';
@@ -131,13 +156,17 @@ export class WorklistapplyPage {
 
 
       }else {
-        this.appService.toast("工单申请失败");
+        this.appService.toast("工单申请失败!"+JSON.stringify(d.status.error_desc));
+
+
+
+
         // this.appService.alert("工单申请失败"+JSON.stringify(this.jsonText));
       }
 
     },true)
 
-
+   }
 
   }
 
@@ -342,8 +371,58 @@ else if(de==6){
   onUsers(){
     this.navCtrl.push(UserPage)
   }
+  //
+  // //失去焦点
+  // blurInput(){
+  //   console.log("blur");
+  //
+  // }
+  // //获取焦点
+  // focusInput(){
+  //   // if(this.carnumbser.length==6){
+  //   //   console.log("车牌出入");
+  //   // }
+  //   console.log("focus");
+  //
+  // }
+  //车牌输入6个字符请求服务器
+  onChange(){
 
+    if(this.carnumbser.length==6){
+      console.log("onchan");
+      console.log(this.carnumbser);
 
+      this.jsonText={
+        user_id:this.loginstate.loginUserId,
+        province_code_id:this.capital,
+        plate_no:this.carnumbser
+
+      };
+      this.params ={
+        route:'car/car/getCarInfo',
+        token:this.loginstate.token,
+        jsonText:JSON.stringify(this.jsonText),
+      };
+      this.appService.httpPost(this.params,d=>{
+        console.log(JSON.stringify(d));
+        if(d.data.car_info==''){
+          this.appService.toast("未找到此车牌号")
+          console.log("没有这辆车");
+        }else{
+          console.log("有这辆车");
+
+        this.returnCarNum=d.data.car_info['plate_no'];
+        this.returnCarMark=d.data.car_info['car_no'];
+        this.returnPark=d.data.car_info.car_parking_site_info['parking_site_name'];
+        this.stateCar=true;
+        console.log(this.returnCarNum+this.returnCarMark+this.returnPark);
+        }
+
+      },true);
+
+    }
+
+  }
 
 
 }

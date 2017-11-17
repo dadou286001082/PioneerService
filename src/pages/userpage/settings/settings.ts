@@ -85,12 +85,12 @@ if(d.data.config_list[0]['data']['need_update']==0) {
     buttons: ['确认']
   });
   alert.present()
-    }
+}
   },true);
 
-
-
   }
+
+
   settingBack(){
     this.navCtrl.pop();
   }

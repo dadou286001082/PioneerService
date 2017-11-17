@@ -39,9 +39,15 @@
         <!--<ion-option *ngFor="let provlist of provinceList"  value={{this.provlist.province_code_id}} >{{this.provlist.province_code_name}}</ion-option>-->
       <!--</ion-select>-->
     <!--</ion-item>-->
-    <input class="info-input" type="text" placeholder=" " [(ngModel)]="carnumbser" >
+    <input class="info-input" type="text" placeholder=" "  (input)="onChange()"  maxlength="6" [(ngModel)]="carnumbser" >
   </div>
+  <!--车辆信息-->
+  <div *ngIf="stateCar" style="display: flex; flex-direction: column;margin-left: 5%;margin-top: 10px;">
+  <span style="font-size:14px;margin-top: 10px;">车牌号: {{returnCarNum}}</span>
+  <span style="font-size:14px;margin-top: 10px;">车辆编号: {{returnCarMark}}</span>
+  <span style="font-size:14px;margin-top: 10px;">停车场名称: {{returnPark}}</span>
 
+  </div>
 
 
   <div style="margin-bottom: 10px;font-size:14px;margin-top: 50px;margin-left: 5%">
@@ -64,7 +70,8 @@
   </div>
   <div style="margin-left: 5%;margin-right: 5%">
     <label >
-      <input  type="text" placeholder="" [(ngModel)]="remark" style="border: 1px solid gray; border-radius: 5px;width: 100% ;height :200px;border-color: #c7c7c7;" >
+      <ion-input id="inputs" type="text" placeholder="" [(ngModel)]="remark" style="border: 1px solid gray; border-radius: 5px;width: 100% ;height :200px;border-color: #c7c7c7;" >
+      </ion-input>
     </label>
   </div>
 
