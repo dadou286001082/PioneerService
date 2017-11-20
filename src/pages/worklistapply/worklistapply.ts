@@ -407,6 +407,7 @@ else if(de==6){
         console.log(JSON.stringify(d));
         if(d.data.car_info==''){
           this.appService.toast("未找到此车牌号")
+          this.stateCar =false;
           console.log("没有这辆车");
         }else{
           console.log("有这辆车");

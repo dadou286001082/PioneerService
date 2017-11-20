@@ -34,7 +34,7 @@
     <p>暂无待处理订单</p>
   </div>
   <div [ngSwitch]="myworklistType">
-    <ion-list no-lines inset *ngSwitchCase="'undone'">
+    <ion-list style="background-color: #f9f9f9" no-lines inset *ngSwitchCase="'undone'">
       <ion-item style="background-color:white;margin-top: 5px;margin-bottom: 10px;" *ngFor="let item of mylists"
                 (click)="startPage(item)">
         <div style="margin-top: 2px;margin-bottom: 2px">服务单号：{{item.work_sheet_no}}</div>

@@ -4,7 +4,7 @@ import {TabsPage} from "../tabs/tabs";
 import {AppService} from "../../providers/app.service";
 import {Md5} from "ts-md5/dist/md5";
 import {Loginstate} from "./loginstate";
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';//表单验证
+import {FormGroup } from '@angular/forms';//表单验证
 
 @Component({
   templateUrl:'login.html',
@@ -15,32 +15,28 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';//表单验�
 export class LoginPage{
   errorMessage: string;
   //表单验证
-  loginForm: FormGroup;
-  usernames: any;
-  passwords: any;
 
-  username :string;  //用户名
-  password :string;  //密码
+  username ='';  //用户名
+  password ='';  //密码
   jsonText;
   params;
   //记住账号密码
   nam:string;
   pas:string;
-  constructor(public navCtrl: NavController,public appService: AppService,public loginState:Loginstate, private formBuilder: FormBuilder,
-
+  constructor(public navCtrl: NavController,public appService: AppService,public loginState:Loginstate,
               ){
-    this.loginForm = formBuilder.group({
-      usernames: ['', Validators.compose([ Validators.required])],
-      passwords: ['', Validators.compose([Validators.required])]
-    })
-    this.usernames = this.loginForm.controls['usernames'];
-    this.passwords = this.loginForm.controls['passwords'];
   }
 
 
   goToTabs(){
-
-
+    console.log(this.username+"----"+this.password);
+  if(this.username ==''){
+    this.appService.toast("请输入用户名");
+  return;
+  }else if(this.password ==''){
+    this.appService.toast("请输入密码");
+    return;
+  }else{
     this.jsonText  = {
       mobile:this.username,
       password : this.password,
@@ -51,25 +47,21 @@ export class LoginPage{
       code:Md5.hashStr(this.username+'poineer_api_nFWn18Wm')
     }
 
-   this. params = {
+    this. params = {
       route: 'user/user/login',
       jsonText:JSON.stringify(this.jsonText)
     }
 
-
-
-    console.log(this.username+'---'+this.password);
-    console.log('---'+JSON.stringify(this.params));
     this.appService.httpPost(this.params, d => {
       // this.res=JSON.stringify(d);
       let res = d.status['succeed'];
-      console.log('-----'+res);
-      console.log('-----'+ d.data.token);
       if(res=='1'){
-        //记住账号密码
         var localStorage = window.localStorage;
         localStorage.setItem('name', this.username);
         localStorage.setItem('pasword', this.password);
+        // console.log('-----'+res);
+        // console.log('-----'+ d.data.token);
+        //记住账号密码
 
         console.log('登录成功');
         //如果登录成功，保存登录信息
@@ -83,9 +75,12 @@ export class LoginPage{
         this.navCtrl.setRoot(TabsPage);
       }else{
         console.log('登录失败');
-        this.appService.toast('登录失败');
+        this.appService.toast('用户名或密码错误');
+        return;
       }
     }, true);
+  }
+
   }
 
 ionViewDidLoad(){

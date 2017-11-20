@@ -13,6 +13,11 @@ export class WelcomePage{
 
   }
 
+  ionViewDidLoad(){
+    if(localStorage.getItem('isFirst') =='true'){
+      this.navCtrl.setRoot(LoginPage);
+    }
+  }
   slides = [
     {
       title: "Welcome to the Docs!",
@@ -31,6 +36,8 @@ export class WelcomePage{
     }
   ];
   goToHome(){
+    var localStorage = window.localStorage;
+    localStorage.setItem('isFirst','true');
     this.navCtrl.setRoot(LoginPage);
   }
 }
