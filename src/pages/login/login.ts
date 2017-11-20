@@ -125,7 +125,27 @@ this.pas=localStorage.getItem('pasword');
         this.loginState.loginUserId=d.data['user_id'];
 
         this.appService.toast('登录成功');
+
+        //记住登录状态
+        this.jsonText  = {
+          user_id:this.loginState.loginUserId
+
+        };
+        this. params = {
+          route: 'user/user/loginWithToken',
+          token:this.loginState.token,
+          jsonText:JSON.stringify(this.jsonText)
+        };
+      this.appService.httpPost(this.params,d=>{
+        console.log("记住登录---"+JSON.stringify(d));
+
+      },true);
+
+
         this.navCtrl.setRoot(TabsPage);
+
+
+
       }else{
         console.log('登录失败');
         this.appService.toast('登录失败');

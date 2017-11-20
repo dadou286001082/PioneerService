@@ -57,7 +57,7 @@
     <!--<ion-item   class="info-select-item">-->
   <!--<div style=" display: flex;background-color:black;width: 180%;margin-left: 5%;margin-right: 5%">-->
     <ion-item-divider  class="info-select-item">
-      <ion-select  class="info-select-two"  [(ngModel)]="works" interface="action-sheet">
+      <ion-select  class="info-select-two"  [(ngModel)]="works" interface="popover">
         <ion-option  value={{this.wor.work_sheet_category_id}} *ngFor="let wor of workList">{{this.wor.work_sheet_category_name}}</ion-option>
       </ion-select>
     </ion-item-divider>
