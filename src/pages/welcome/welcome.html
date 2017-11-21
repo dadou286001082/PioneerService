@@ -1,8 +1,9 @@
 
 <ion-content  class="tutorial-page">
   <ion-slides pager >
-    <ion-slide style="width: 100%;height: 100%;background-image: url(../assets/img/bg.jpg)
-    ;background-size:cover;background-position: center; " *ngFor="let slide of slides">
+    <ion-slide style="background-image: url('./assets/img/bg.jpg');background-repeat: no-repeat;
+    width:100%;heigth:95%;background-position: center;background-size:cover;
+    ;" *ngFor="let slide of slides">
       <ion-toolbar>
         <ion-buttons end>
           <button  (click)= " goToHome()" ion-button color="primary">跳过</button>
@@ -12,16 +13,17 @@
       <!--<h2 class="slide-title" [innerHTML]="slide.title"></h2>-->
       <!--<p [innerHTML]="slide.description"></p>-->
     </ion-slide>
-    <ion-slide style="width: 100%;height: 100%;background-image: url(../assets/img/bg.jpg)
+    <ion-slide style="width: 100%;height: 100%;background-image: url('./assets/img/bg.jpg')
     ;background-size:cover;background-position: center; ">
-      <ion-footer (click)= " goToHome()">
-        <button style="margin-bottom: 100px" ion-button large clear icon-end color="primary">
+        <button   (click)= " goToHome()" style="margin-bottom: 100px" ion-button large clear icon-end color="primary">
           进入首页
           <ion-icon name="arrow-forward"></ion-icon>
         </button>
-      </ion-footer>
       <!--<img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>-->
-
     </ion-slide>
   </ion-slides>
 </ion-content>
+
+<!--<ion-content style="width: 100%;height: 100%;background-color: #32db64;background-image:url('./assets/img/loginbg.png') ">-->
+
+<!--</ion-content>-->
